@@ -119,6 +119,8 @@ export async function setupBuildingEditor({ scene, camera, canvas, terrain, heig
     return building;
   }
   function setEnabled(value) {
+    if(value && document.querySelector("#place-person")?.getAttribute("aria-pressed")==="true")
+      document.querySelector("#place-person")?.click();
     enabled=value;
     panel.hidden=!enabled;
     toggle.setAttribute("aria-pressed",String(enabled));
