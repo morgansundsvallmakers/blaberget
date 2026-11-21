@@ -11,6 +11,8 @@ const modeLabel = document.querySelector("#mode");
 const positionLabel = document.querySelector("#position");
 const overviewButton = document.querySelector("#overview");
 const groundButton = document.querySelector("#ground");
+const placePersonButton = document.querySelector("#place-person");
+const observerStatus = document.querySelector("#observer-status");
 const boundaryButton = document.querySelector("#toggle-boundary");
 const treesButton = document.querySelector("#toggle-trees");
 const imageryButton = document.querySelector("#toggle-imagery");
@@ -95,6 +97,82 @@ let yaw = Math.PI;
 let pitch = -0.05;
 const keys = new Set();
 const clock = new THREE.Clock();
+const PERSON_STORAGE = "blaberget-observer-v1";
+let observer = {x:-25,z:95};
+let placingPerson = false;
+let personMarker;
+try {
+  const saved=JSON.parse(localStorage.getItem(PERSON_STORAGE)||"null");
+  if(saved && Number.isFinite(saved.x) && Number.isFinite(saved.z)
+    && Math.abs(saved.x)<WIDTH/2-2 && Math.abs(saved.z)<DEPTH/2-2) observer=saved;
+} catch {}
+function storeObserver() {
+  try {localStorage.setItem(PERSON_STORAGE,JSON.stringify(observer));} catch {}
+}
+function moveObserver(x,z) {
+  observer.x=THREE.MathUtils.clamp(x,-WIDTH/2+2,WIDTH/2-2);
+  observer.z=THREE.MathUtils.clamp(z,-DEPTH/2+2,DEPTH/2-2);
+  if(personMarker) personMarker.position.set(observer.x,heightAt(observer.x,observer.z),observer.z);
+}
+function createPersonMarker() {
+  const group=new THREE.Group();
+  group.name="Din position";
+  const material=new THREE.MeshStandardMaterial({color:0xffc64e,roughness:.75});
+  const torso=new THREE.Mesh(new THREE.CylinderGeometry(.26,.32,1.03,10),material);
+  torso.position.y=.82;group.add(torso);
+  const head=new THREE.Mesh(new THREE.SphereGeometry(.27,12,8),material);
+  head.position.y=1.58;group.add(head);
+  const ring=new THREE.Mesh(new THREE.RingGeometry(.75,.94,32),
+    new THREE.MeshBasicMaterial({color:0xffe08a,side:THREE.DoubleSide,depthTest:false}));
+  ring.rotation.x=-Math.PI/2;ring.position.y=.12;group.add(ring);
+  scene.add(group);
+  personMarker=group;
+  moveObserver(observer.x,observer.z);
+}
+function setPlacingPerson(value) {
+  placingPerson=value;
+  placePersonButton.classList.toggle("active",value);
+  placePersonButton.setAttribute("aria-pressed",String(value));
+  placePersonButton.textContent=value?"Klicka på marken…":"Placera mig";
+  canvas.style.cursor=value?"crosshair":"";
+  observerStatus.hidden=!value;
+}
+let personPointerStart=null;
+canvas.addEventListener("pointerdown",event=>{
+  if(!placingPerson || mode!=="overview")return;
+  personPointerStart={id:event.pointerId,x:event.clientX,y:event.clientY};
+});
+canvas.addEventListener("pointerup",event=>{
+  if(!placingPerson||mode!=="overview"||!personPointerStart||event.pointerId!==personPointerStart.id)return;
+  const distance=Math.hypot(event.clientX-personPointerStart.x,event.clientY-personPointerStart.y);
+  personPointerStart=null;
+  if(distance>6 || !terrain)return;
+  const bounds=canvas.getBoundingClientRect();
+  const pointer=new THREE.Vector2(
+    (event.clientX-bounds.left)/bounds.width*2-1,
+    -(event.clientY-bounds.top)/bounds.height*2+1);
+  const ray=new THREE.Raycaster();
+  ray.setFromCamera(pointer,camera);
+  const hit=ray.intersectObject(terrain,false)[0];
+  if(!hit)return;
+  moveObserver(hit.point.x,hit.point.z);
+  storeObserver();
+  setPlacingPerson(false);
+  setOverview();
+});
+canvas.addEventListener("pointercancel",()=>{personPointerStart=null;});
+placePersonButton.addEventListener("click",()=>{
+  if(!terrain)return;
+  if(!placingPerson){
+    if(document.querySelector("#toggle-build")?.getAttribute("aria-pressed")==="true")
+      document.querySelector("#build-close")?.click();
+    if(mode==="ground")setOverview();
+  }
+  setPlacingPerson(!placingPerson);
+});
+addEventListener("keydown",event=>{
+  if(event.key==="Escape" && placingPerson)setPlacingPerson(false);
+});
 
 function heightAt(x, z) {
   if (!heights) return 0;
@@ -272,37 +350,46 @@ function createForest(treeScene) {
 }
 
 function setOverview() {
-  mode = "overview";
-  if (document.pointerLockElement === canvas) document.exitPointerLock();
-  orbit.enabled = true;
-  camera.fov = 50;
+  if(mode==="ground"){
+    moveObserver(camera.position.x,camera.position.z);
+    storeObserver();
+  }
+  mode="overview";
+  if(document.pointerLockElement===canvas)document.exitPointerLock();
+  if(personMarker)personMarker.visible=true;
+  orbit.enabled=true;
+  camera.fov=50;
   camera.updateProjectionMatrix();
-  camera.position.set(470, 430, 600);
-  orbit.target.set(-25, 42, -5);
+  const h=heightAt(observer.x,observer.z);
+  const focus=new THREE.Vector3(observer.x,h+1,observer.z);
+  orbit.target.copy(focus);
+  camera.position.set(observer.x,h+175,observer.z+75);
+  camera.lookAt(focus);
   orbit.update();
   overviewButton.classList.add("active");
   groundButton.classList.remove("active");
-  crosshair.hidden = true;
-  mobileControls.hidden = true;
-  modeLabel.textContent = "Översikt";
-  positionLabel.textContent = "1 m höjddata · verklig skala";
+  crosshair.hidden=true;
+  mobileControls.hidden=true;
+  modeLabel.textContent="Översikt";
+  positionLabel.textContent="Översikt ovanför din position";
 }
-
 function setGround() {
-  mode = "ground";
-  orbit.enabled = false;
-  camera.fov = 68;
+  if(placingPerson)setPlacingPerson(false);
+  mode="ground";
+  orbit.enabled=false;
+  if(personMarker)personMarker.visible=false;
+  camera.fov=68;
   camera.updateProjectionMatrix();
-  camera.position.set(-25, heightAt(-25, 95) + 1.75, 95);
-  yaw = Math.PI;
-  pitch = -0.04;
-  camera.rotation.set(pitch, yaw, 0);
+  camera.position.set(observer.x,heightAt(observer.x,observer.z)+1.75,observer.z);
+  pitch=-0.04;
+  camera.rotation.set(pitch,yaw,0);
   overviewButton.classList.remove("active");
   groundButton.classList.add("active");
-  crosshair.hidden = false;
-  mobileControls.hidden = !isCoarsePointer;
-  modeLabel.textContent = "Marknivå";
-  if (!isCoarsePointer) canvas.requestPointerLock();
+  crosshair.hidden=false;
+  mobileControls.hidden=!isCoarsePointer;
+  modeLabel.textContent="Marknivå";
+  updateGround(0);
+  if(!isCoarsePointer)canvas.requestPointerLock();
 }
 
 function updateGround(delta) {
@@ -318,6 +405,7 @@ function updateGround(delta) {
     camera.position.z = THREE.MathUtils.clamp(camera.position.z, -DEPTH / 2 + 2, DEPTH / 2 - 2);
   }
   camera.position.y = heightAt(camera.position.x, camera.position.z) + 1.75;
+  moveObserver(camera.position.x,camera.position.z);
   camera.rotation.set(pitch, yaw, 0);
   const easting = EASTING_MIN + camera.position.x + WIDTH / 2;
   const northing = NORTHING_MAX - (camera.position.z + DEPTH / 2);
@@ -470,6 +558,7 @@ async function init() {
     originalUV = terrain.geometry.getAttribute("uv").array.slice();
     boundary = createBoundary();
     forest = createForest(tree.scene);
+    createPersonMarker();
     setOverview();
     // The building editor is separate from the terrain and can be extended with more assets.
     setupBuildingEditor({ scene, camera, canvas, terrain, heightAt, setOverview, getMode:()=>mode });
