@@ -26,6 +26,7 @@
     <div class="actions" aria-label="Visningslägen">
       <button id="overview" class="active" type="button">Översikt</button>
       <button id="ground" type="button">Marknivå</button>
+      <button id="place-person" type="button" aria-pressed="false">Placera mig</button>
       <button id="toggle-boundary" type="button" aria-pressed="true">Röd gräns</button>
       <button id="toggle-trees" type="button" aria-pressed="true">Träd</button>
       <button id="toggle-imagery" type="button" aria-pressed="false">Flygfoto</button>
@@ -63,6 +64,7 @@
     <button id="close-help" class="close" type="button" aria-label="Stäng hjälp">×</button>
     <h2>Så rör du dig</h2>
     <p><strong>Översikt:</strong> dra för att rotera, högerdra för att flytta och använd mushjulet för zoom.</p>
+    <p><strong>Placera mig:</strong> välj en punkt i översikten. Marknivå börjar där, och Översikt återgår till din senaste position.</p>
     <p><strong>Marknivå:</strong> klicka i modellen och använd W A S D. Håll Skift för att gå snabbare. Esc frigör muspekaren.</p>
     <p>På pekskärm drar du över modellen för att se dig omkring och använder pilarna längst ned.</p>
   </aside>
@@ -78,6 +80,8 @@
     </form>
   </dialog>
   <div id="imagery-credit" class="imagery-credit" hidden>Flygbild: Esri, Maxar, Earthstar Geographics och GIS User Community · <a href="https://www.esri.com/en-us/legal/terms/web-site-service" target="_blank" rel="noopener noreferrer">Villkor</a></div>
+
+  <div id="observer-status" class="observer-status" hidden>Klicka på terrängen där du vill stå. Dra för att vrida översikten som vanligt. Esc avbryter.</div>
 
   <div class="compass" aria-label="Norr är uppåt i terrängmodellen">
     <span>N</span>
@@ -105,6 +109,6 @@
   </div>
 
   <noscript>JavaScript måste vara aktiverat för att visa 3D-modellen.</noscript>
-  <script type="module" src="app.js?v=6"></script>
+  <script type="module" src="app.js?v=7"></script>
 </body>
 </html>
