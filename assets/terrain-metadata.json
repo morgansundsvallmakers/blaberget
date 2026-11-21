@@ -1,0 +1,24 @@
+{
+  "title": "Blåberget markhöjdmodell",
+  "source": "Lantmäteriet Markhöjdmodell Nedladdning",
+  "crs": "EPSG:3006",
+  "verticalReference": "RH 2000",
+  "sourceResolutionMetres": 1,
+  "webGrid": {
+    "columns": 251,
+    "rows": 201,
+    "widthMetres": 1000,
+    "depthMetres": 800
+  },
+  "bounds": {
+    "eastingMin": 612300,
+    "northingMin": 6916700,
+    "eastingMax": 613300,
+    "northingMax": 6917500
+  },
+  "elevationMetres": {
+    "minimum": 113.2753,
+    "maximum": 214.3436
+  },
+  "license": "CC BY 4.0"
+}
