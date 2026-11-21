@@ -48,3 +48,23 @@ lokala layout. Spara gärna en export som säkerhetskopia. Importen accepterar
 endast kända objekttyper och begränsat koordinatintervall.
 
 Byggläget är första steget mot fler modeller och fältskyttestationer.
+
+## Fältmål: första tre figurerna
+
+Byggläget har även tre förenklade målfigurer på enkla träställningar.
+Välj **C 50 (50 × 45 cm)**, **B 45 (35 × 45 cm)** eller
+**C 30 (30 × 27 cm)** i listan, välj **Placera objekt**, klicka på terrängen
+och justera placering och rotation som för fältboden.
+
+Måtten kommer från tabellerna i det uppladdade utdraget ur
+Svenska Pistolskytteförbundets skjuthandbok (*Fältskyttefigurer*).
+Figurerna är **förenklade ellipser**, inte exakta kopior av de
+upphovsrättsskyddade målillustrationerna eller en skjutbar
+målanläggning. Målens centrum ligger initialt ca 1,37 m över den
+lokala markytan; ställningarna är tills vidare schematiska.
+
+Den befintliga lokala sparnyckeln och JSON-formatet (version 1) behålls.
+Gamla fältbodsplaceringar ska gå att läsa och JSON kan nu innehålla
+både byggnader och mål. Ingen automatisk synkronisering mellan
+besökare ingår. Modellen är ett visuellt planeringsunderlag och
+ingen kontroll av skjutriktning, kulfång eller säkerhet.
