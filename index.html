@@ -28,6 +28,7 @@
       <button id="ground" type="button">Marknivå</button>
       <button id="toggle-boundary" type="button" aria-pressed="true">Röd gräns</button>
       <button id="toggle-trees" type="button" aria-pressed="true">Träd</button>
+      <button id="toggle-imagery" type="button" aria-pressed="false">Flygfoto</button>
       <button id="toggle-help" class="icon-button" type="button" aria-label="Visa hjälp">?</button>
     </div>
   </header>
@@ -39,6 +40,18 @@
     <p><strong>Marknivå:</strong> klicka i modellen och använd W A S D. Håll Skift för att gå snabbare. Esc frigör muspekaren.</p>
     <p>På pekskärm drar du över modellen för att se dig omkring och använder pilarna längst ned.</p>
   </aside>
+
+  <dialog id="imagery-dialog" aria-labelledby="imagery-title">
+    <form method="dialog" id="imagery-form">
+      <h2 id="imagery-title">Esri World Imagery</h2>
+      <p>Ange din ArcGIS API-nyckel för ett tillfälligt test. Den används bara i minnet och sparas inte på GitHub eller i webbläsarens lagring.</p>
+      <label for="imagery-key">API-nyckel</label>
+      <input id="imagery-key" type="password" autocomplete="off" spellcheck="false" placeholder="Klistra in API-nyckel" required>
+      <p id="imagery-status" role="status" aria-live="polite"></p>
+      <div class="imagery-actions"><button id="imagery-cancel" type="button">Avbryt</button><button id="imagery-load" type="submit">Visa flygfoto</button></div>
+    </form>
+  </dialog>
+  <div id="imagery-credit" class="imagery-credit" hidden>Flygbild: Esri, Maxar, Earthstar Geographics och GIS User Community · <a href="https://www.esri.com/en-us/legal/terms/web-site-service" target="_blank" rel="noopener noreferrer">Villkor</a></div>
 
   <div class="compass" aria-label="Norr är uppåt i terrängmodellen">
     <span>N</span>
@@ -66,6 +79,6 @@
   </div>
 
   <noscript>JavaScript måste vara aktiverat för att visa 3D-modellen.</noscript>
-  <script type="module" src="app.js?v=2"></script>
+  <script type="module" src="app.js?v=3"></script>
 </body>
 </html>
