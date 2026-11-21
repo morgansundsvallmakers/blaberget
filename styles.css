@@ -264,3 +264,13 @@ noscript { position: fixed; inset: 0; z-index: 100; display: grid; place-items: 
 #build-type { display:block; width:100%; margin:0 0 9px; padding:9px 11px; background:#243c2a;
   color:var(--text); border:1px solid #65856b; border-radius:9px; font:inherit; font-size:.86rem; }
 #build-add { display:block; width:100%; }
+
+
+/* Observer placement mode */
+.observer-status { position:fixed; z-index:9; top:98px; left:50%; transform:translateX(-50%);
+  width:max-content; max-width:calc(100vw - 28px); padding:10px 14px;
+  border:1px solid rgba(255,255,255,.24); border-radius:10px;
+  background:rgba(15,32,25,.93); color:var(--text); text-align:center;
+  font-size:.85rem; pointer-events:none; }
+.observer-status[hidden] {display:none;}
+@media(max-width:650px){ .observer-status{top:128px;} }
