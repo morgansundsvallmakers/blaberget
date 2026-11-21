@@ -41,15 +41,19 @@ export async function createImageryTexture({token, eastingMin, northingMin, east
   async function worker() {
     while(next<tiles.length) {
       const {x,y}=tiles[next++];
-      const url=`${WORLD_IMAGERY}/${ZOOM}/${y}/${x}`;
-      const response=await fetch(url,{
-        headers:{"X-Esri-Authorization":`Bearer ${token.trim()}`},
-        cache:"no-store"
-      });
+      // The ArcGIS World Imagery documentation authenticates tile URLs via ?token=.
+      // Avoid a custom Authorization header, which triggers a CORS preflight.
+      const url=`${WORLD_IMAGERY}/${ZOOM}/${y}/${x}?token=${encodeURIComponent(token.trim())}`;
+      let response;
+      try {
+        response=await fetch(url,{cache:"no-store",referrerPolicy:"strict-origin-when-cross-origin"});
+      } catch {
+        throw new Error("Nätverksfel vid kontakt med Esri. Kontrollera anslutning, tillåtna webbplatser och eventuella CORS-blockeringar.");
+      }
       if(!response.ok){
         if(response.status===401||response.status===403)
           throw new Error("Esri nekade åtkomst (401/403). Kontrollera nyckel, behörighet och webbplatsbegränsning.");
-        throw new Error(`Esri svarade HTTP ${response.status}.`);
+        throw new Error(`Esri svarade HTTP ${response.status}. Kontrollera API-nyckelns behörigheter och tjänstens svar.`);
       }
       const blob=await response.blob();
       const bitmap=await createImageBitmap(blob);
