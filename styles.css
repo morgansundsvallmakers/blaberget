@@ -233,3 +233,28 @@ noscript { position: fixed; inset: 0; z-index: 100; display: grid; place-items: 
   max-width:calc(100vw - 24px); padding:6px 9px; font-size:11px; line-height:1.4;
   color:white; background:#14241ecb; border-radius:5px; }
 .imagery-credit a { color:#b6d6ff; }
+
+
+/* Building editor */
+.build-panel { position:fixed; top:100px; left:18px; z-index:11; width:min(310px,calc(100vw - 36px));
+  max-height:calc(100dvh - 122px); overflow-y:auto; padding:16px;
+  border:1px solid var(--line); border-radius:14px; background:rgba(18,32,23,.95);
+  box-shadow:0 14px 35px #0006; backdrop-filter:blur(12px); }
+.build-panel[hidden] { display:none; }
+.build-heading { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.build-heading h2 { margin:0; font-size:1.15rem; }
+.build-heading button { font-size:1.5rem; border:0; color:white; background:none; cursor:pointer; }
+.build-panel p { margin:9px 0; line-height:1.4; }
+.build-panel button, .build-import { padding:9px 11px; color:var(--text);
+  background:#304d36; border:1px solid #65856b; border-radius:9px; cursor:pointer; font:inherit; font-size:.83rem; }
+.build-panel button.active { background:#627d34; }
+.build-panel button:disabled { opacity:.4; cursor:default; }
+.build-buttons { display:grid; grid-template-columns:1fr 1fr; gap:7px; margin:9px 0; }
+.build-storage { display:flex; flex-wrap:wrap; gap:7px; padding-top:9px; border-top:1px solid var(--line); }
+.build-import { position:relative; overflow:hidden; display:inline-block; }
+.build-import input { position:absolute; inset:0; width:100%; opacity:0; cursor:pointer; }
+#build-status { font-size:.83rem; color:var(--accent); min-height:2em; }
+.build-note { font-size:.75rem; color:var(--muted); }
+@media (max-width:650px) {
+  .build-panel { top:125px; left:10px; width:min(275px,calc(100vw - 20px)); max-height:calc(100dvh - 145px); }
+}
