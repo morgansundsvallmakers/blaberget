@@ -36,8 +36,15 @@
 
   <aside id="build-panel" class="build-panel" hidden>
     <div class="build-heading"><h2>Byggläge</h2><button id="build-close" type="button" aria-label="Stäng byggläge">×</button></div>
-    <p id="build-count">0 fältbodar</p>
-    <button id="build-add" type="button">Placera fältbod</button>
+    <p id="build-count">0 objekt</p>
+    <label for="build-type">Objekttyp</label>
+    <select id="build-type" aria-label="Objekttyp">
+      <option value="faltbod">Fältbod</option>
+      <option value="c50">C 50 – 50 × 45 cm</option>
+      <option value="b45">B 45 – 35 × 45 cm</option>
+      <option value="c30">C 30 – 30 × 27 cm</option>
+    </select>
+    <button id="build-add" type="button">Placera objekt</button>
     <div class="build-buttons">
       <button id="build-move" type="button" disabled>Flytta vald</button>
       <button id="build-left" type="button" disabled>↶ 15°</button>
@@ -49,7 +56,7 @@
       <label class="build-import">Importera JSON <input id="build-import" type="file" accept=".json,application/json"></label>
     </div>
     <p id="build-status" role="status" aria-live="polite">Laddar fältboden…</p>
-    <p class="build-note">Klicka på en fältbod för att välja den. Dina ändringar sparas lokalt i den här webbläsaren. Exportera JSON för att dela eller säkerhetskopiera placeringarna.</p>
+    <p class="build-note">Klicka på en fältbod eller en målställning för att välja den. Dina ändringar sparas lokalt i den här webbläsaren. Exportera JSON för att dela eller säkerhetskopiera placeringarna.</p>
   </aside>
 
   <aside id="help" class="help" hidden>
@@ -98,6 +105,6 @@
   </div>
 
   <noscript>JavaScript måste vara aktiverat för att visa 3D-modellen.</noscript>
-  <script type="module" src="app.js?v=5"></script>
+  <script type="module" src="app.js?v=6"></script>
 </body>
 </html>
