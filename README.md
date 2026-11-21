@@ -30,3 +30,21 @@ py -m http.server 8080
 ```
 
 Öppna sedan <http://localhost:8080/>.
+
+## Byggläge (fältboden)
+
+Välj **Byggläge** i översiktsläget. Klicka på **Placera fältbod** och sedan på
+terrängen. Klicka på en befintlig bod för att välja den. En vald bod kan flyttas,
+roteras 15° åt gången eller tas bort. En kameradragning ska inte placera bodar.
+
+Modellen ligger i `assets/faltboden_forsta_utkast.glb`. Den är ett första utkast
+och placeras med markkontakt utifrån höjdmodellen. Terrängen modifieras inte
+under byggnaden.
+
+Placeringar sparas i webbläsarens **localStorage**. De är **inte** automatiskt
+gemensamma för andra besökare eller enheter. Använd **Exportera JSON** för att
+spara och dela en anläggningslayout; **Importera JSON** ersätter nuvarande
+lokala layout. Spara gärna en export som säkerhetskopia. Importen accepterar
+endast kända objekttyper och begränsat koordinatintervall.
+
+Byggläget är första steget mot fler modeller och fältskyttestationer.
