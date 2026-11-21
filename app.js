@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { createImageryTexture } from "./esri-imagery.js";
+import { ESRI_PUBLIC_API_KEY } from "./config.js";
 
 const canvas = document.querySelector("#scene");
 const loading = document.querySelector("#loading");
@@ -345,11 +346,8 @@ imageryButton.addEventListener("click",()=>{
   }else setImageryVisible(false);
 });
 document.querySelector("#imagery-cancel").addEventListener("click",()=>imageryDialog.close());
-document.querySelector("#imagery-form").addEventListener("submit",async e=>{
-  e.preventDefault();
-  if(!terrain)return;
-  const key=imageryKey.value.trim();
-  if(!key){imageryStatus.textContent="Ange din API-nyckel.";return;}
+async function loadImagery(key) {
+  if(!terrain||!key)return;
   const button=document.querySelector("#imagery-load");
   button.disabled=true;
   imageryStatus.textContent="Hämtar flygbild...";
@@ -374,13 +372,19 @@ document.querySelector("#imagery-form").addEventListener("submit",async e=>{
     }
     imageryTexture=result.texture;
     imageryUV=uvs;
-    imageryKey.value=""; // Never store the token in localStorage, URLs, or GitHub.
+    imageryKey.value=""; // Do not save a manually entered token.
     setImageryVisible(true);
-    imageryDialog.close();
+    if(imageryDialog.open)imageryDialog.close();
   }catch(error){
     console.error("Kunde inte hämta Esri World Imagery",error.message);
     imageryStatus.textContent=error.message||"Det gick inte att hämta flygbilderna.";
   }finally{button.disabled=false;}
+}
+document.querySelector("#imagery-form").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const key=imageryKey.value.trim();
+  if(!key){imageryStatus.textContent="Ange din API-nyckel.";return;}
+  await loadImagery(key);
 });
 
 overviewButton.addEventListener("click", setOverview);
@@ -468,6 +472,11 @@ async function init() {
     setOverview();
     loading.classList.add("done");
     animate();
+    // A configured public key starts imagery automatically for visitors.
+    // The existing Flygfoto dialog remains available if loading fails.
+    if(ESRI_PUBLIC_API_KEY.trim()){
+      loadImagery(ESRI_PUBLIC_API_KEY.trim()).catch(error=>console.warn("Flygfoto kunde inte visas",error));
+    }
   } catch (error) {
     console.error(error);
     loading.querySelector("strong").textContent = "Terrängen kunde inte laddas";
