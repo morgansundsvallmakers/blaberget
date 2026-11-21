@@ -258,3 +258,9 @@ noscript { position: fixed; inset: 0; z-index: 100; display: grid; place-items: 
 @media (max-width:650px) {
   .build-panel { top:125px; left:10px; width:min(275px,calc(100vw - 20px)); max-height:calc(100dvh - 145px); }
 }
+
+
+.build-panel label[for="build-type"] { display:block; margin:12px 0 5px; font-size:.84rem; color:var(--muted); }
+#build-type { display:block; width:100%; margin:0 0 9px; padding:9px 11px; background:#243c2a;
+  color:var(--text); border:1px solid #65856b; border-radius:9px; font:inherit; font-size:.86rem; }
+#build-add { display:block; width:100%; }
