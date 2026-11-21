@@ -68,3 +68,16 @@ Gamla fältbodsplaceringar ska gå att läsa och JSON kan nu innehålla
 både byggnader och mål. Ingen automatisk synkronisering mellan
 besökare ingår. Modellen är ett visuellt planeringsunderlag och
 ingen kontroll av skjutriktning, kulfång eller säkerhet.
+
+## Placera observatör / växla kameraläge
+
+Välj **Placera mig** i översikten och klicka på en plats i terrängen.
+Den gula markören motsvarar observatören. Välj **Marknivå** för att gå dit
+med kameran cirka 1,75 m över marken. När du återgår till **Översikt**
+centreras kameran ovanför den aktuella positionen med en lätt sned vinkel.
+Efter förflyttning i marknivå följer observatörspositionen med.
+
+Startpunkten sparas lokalt i webbläsaren, separat från byggnader och mål.
+Det går att avbryta utplaceringen med Esc. **Byggläge** och
+**Placera mig** kan inte vara aktiva samtidigt. Observatörsmarkören
+döljs i marknivå.
