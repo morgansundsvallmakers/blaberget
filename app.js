@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { createImageryTexture } from "./esri-imagery.js";
 
 const canvas = document.querySelector("#scene");
 const loading = document.querySelector("#loading");
@@ -10,6 +11,11 @@ const overviewButton = document.querySelector("#overview");
 const groundButton = document.querySelector("#ground");
 const boundaryButton = document.querySelector("#toggle-boundary");
 const treesButton = document.querySelector("#toggle-trees");
+const imageryButton = document.querySelector("#toggle-imagery");
+const imageryDialog = document.querySelector("#imagery-dialog");
+const imageryStatus = document.querySelector("#imagery-status");
+const imageryKey = document.querySelector("#imagery-key");
+const imageryCredit = document.querySelector("#imagery-credit");
 const help = document.querySelector("#help");
 const crosshair = document.querySelector("#crosshair");
 const mobileControls = document.querySelector("#mobile-controls");
@@ -76,6 +82,10 @@ scene.add(sun);
 
 let heights;
 let terrain;
+let originalTerrainTexture;
+let originalUV;
+let imageryTexture;
+let imageryUV;
 let boundary;
 let forest;
 let mode = "overview";
@@ -313,6 +323,66 @@ function updateGround(delta) {
   positionLabel.textContent = `E ${easting.toFixed(0)} · N ${northing.toFixed(0)} · ${elevation.toFixed(1)} m`;
 }
 
+// Optional satellite imagery: do not expose a key in the repository or save it locally.
+// Switching off restores the original UVs and shaded terrain texture without a reload.
+function setImageryVisible(visible) {
+  if(!terrain)return;
+  const uv=terrain.geometry.getAttribute("uv");
+  uv.array.set(visible?imageryUV:originalUV);
+  uv.needsUpdate=true;
+  terrain.material.map=visible?imageryTexture:originalTerrainTexture;
+  terrain.material.needsUpdate=true;
+  imageryCredit.hidden=!visible;
+  imageryButton.setAttribute("aria-pressed",String(visible));
+  imageryButton.classList.toggle("active",visible);
+}
+imageryButton.addEventListener("click",()=>{
+  if(!terrain)return;
+  if(imageryCredit.hidden){
+    if(imageryTexture){setImageryVisible(true);return;}
+    imageryStatus.textContent="";
+    imageryDialog.showModal();
+  }else setImageryVisible(false);
+});
+document.querySelector("#imagery-cancel").addEventListener("click",()=>imageryDialog.close());
+document.querySelector("#imagery-form").addEventListener("submit",async e=>{
+  e.preventDefault();
+  if(!terrain)return;
+  const key=imageryKey.value.trim();
+  if(!key){imageryStatus.textContent="Ange din API-nyckel.";return;}
+  const button=document.querySelector("#imagery-load");
+  button.disabled=true;
+  imageryStatus.textContent="Hämtar flygbild...";
+  try{
+    const result=await createImageryTexture({
+      token:key,
+      eastingMin:EASTING_MIN,
+      northingMin:NORTHING_MAX-DEPTH,
+      eastingMax:EASTING_MIN+WIDTH,
+      northingMax:NORTHING_MAX,
+      renderer,
+      onProgress:(completed,total)=>{imageryStatus.textContent=`Hämtar flygbild: ${completed}/${total} bildrutor`;}
+    });
+    // Match every terrain vertex with its geographic position in SWEREF 99 TM.
+    const uvs=new Float32Array(COLS*ROWS*2);
+    let i=0;
+    for(let y=0;y<ROWS;y++)for(let x=0;x<COLS;x++){
+      const east=EASTING_MIN+x/(COLS-1)*WIDTH;
+      const north=NORTHING_MAX-y/(ROWS-1)*DEPTH;
+      const coords=result.toUV(east,north);
+      uvs[i++]=coords[0];uvs[i++]=coords[1];
+    }
+    imageryTexture=result.texture;
+    imageryUV=uvs;
+    imageryKey.value=""; // Never store the token in localStorage, URLs, or GitHub.
+    setImageryVisible(true);
+    imageryDialog.close();
+  }catch(error){
+    console.error("Kunde inte hämta Esri World Imagery",error.message);
+    imageryStatus.textContent=error.message||"Det gick inte att hämta flygbilderna.";
+  }finally{button.disabled=false;}
+});
+
 overviewButton.addEventListener("click", setOverview);
 groundButton.addEventListener("click", setGround);
 boundaryButton.addEventListener("click", () => {
@@ -391,6 +461,8 @@ async function init() {
     heights = new Float32Array(heightResponse);
     if (heights.length !== COLS * ROWS) throw new Error("Höjddata har fel storlek");
     terrain = createTerrain(texture);
+    originalTerrainTexture = texture;
+    originalUV = terrain.geometry.getAttribute("uv").array.slice();
     boundary = createBoundary();
     forest = createForest(tree.scene);
     setOverview();
