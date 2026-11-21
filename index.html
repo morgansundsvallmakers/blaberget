@@ -44,7 +44,7 @@
   <dialog id="imagery-dialog" aria-labelledby="imagery-title">
     <form method="dialog" id="imagery-form">
       <h2 id="imagery-title">Esri World Imagery</h2>
-      <p>Ange din ArcGIS API-nyckel för ett tillfälligt test. Den används bara i minnet och sparas inte på GitHub eller i webbläsarens lagring.</p>
+      <p>Om den automatiska flygbilden inte fungerar kan du ange en API-nyckel manuellt. En manuellt angiven nyckel sparas inte i webbläsarens lagring.</p>
       <label for="imagery-key">API-nyckel</label>
       <input id="imagery-key" type="password" autocomplete="off" spellcheck="false" placeholder="Klistra in API-nyckel" required>
       <p id="imagery-status" role="status" aria-live="polite"></p>
@@ -79,6 +79,6 @@
   </div>
 
   <noscript>JavaScript måste vara aktiverat för att visa 3D-modellen.</noscript>
-  <script type="module" src="app.js?v=3"></script>
+  <script type="module" src="app.js?v=4"></script>
 </body>
 </html>
