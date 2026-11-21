@@ -29,9 +29,28 @@
       <button id="toggle-boundary" type="button" aria-pressed="true">Röd gräns</button>
       <button id="toggle-trees" type="button" aria-pressed="true">Träd</button>
       <button id="toggle-imagery" type="button" aria-pressed="false">Flygfoto</button>
+      <button id="toggle-build" type="button" aria-pressed="false">Byggläge</button>
       <button id="toggle-help" class="icon-button" type="button" aria-label="Visa hjälp">?</button>
     </div>
   </header>
+
+  <aside id="build-panel" class="build-panel" hidden>
+    <div class="build-heading"><h2>Byggläge</h2><button id="build-close" type="button" aria-label="Stäng byggläge">×</button></div>
+    <p id="build-count">0 fältbodar</p>
+    <button id="build-add" type="button">Placera fältbod</button>
+    <div class="build-buttons">
+      <button id="build-move" type="button" disabled>Flytta vald</button>
+      <button id="build-left" type="button" disabled>↶ 15°</button>
+      <button id="build-right" type="button" disabled>↷ 15°</button>
+      <button id="build-delete" type="button" disabled>Ta bort vald</button>
+    </div>
+    <div class="build-storage">
+      <button id="build-export" type="button">Exportera JSON</button>
+      <label class="build-import">Importera JSON <input id="build-import" type="file" accept=".json,application/json"></label>
+    </div>
+    <p id="build-status" role="status" aria-live="polite">Laddar fältboden…</p>
+    <p class="build-note">Klicka på en fältbod för att välja den. Dina ändringar sparas lokalt i den här webbläsaren. Exportera JSON för att dela eller säkerhetskopiera placeringarna.</p>
+  </aside>
 
   <aside id="help" class="help" hidden>
     <button id="close-help" class="close" type="button" aria-label="Stäng hjälp">×</button>
@@ -79,6 +98,6 @@
   </div>
 
   <noscript>JavaScript måste vara aktiverat för att visa 3D-modellen.</noscript>
-  <script type="module" src="app.js?v=4"></script>
+  <script type="module" src="app.js?v=5"></script>
 </body>
 </html>
