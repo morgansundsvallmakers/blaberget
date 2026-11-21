@@ -37,14 +37,22 @@ scene.fog = new THREE.FogExp2(0x93a8aa, 0.00115);
 const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.2, 2600);
 camera.rotation.order = "YXZ";
 
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: "high-performance" });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 1.8));
-renderer.setSize(innerWidth, innerHeight, false);
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.04;
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: "high-performance" });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.8));
+  renderer.setSize(innerWidth, innerHeight, false);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.04;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+} catch (error) {
+  console.error(error);
+  loading.querySelector("strong").textContent = "3D-grafik kunde inte startas";
+  loading.querySelector("span").textContent = "Aktivera WebGL eller prova en uppdaterad Chrome eller Edge.";
+  loading.querySelector(".spinner").remove();
+}
 
 const orbit = new OrbitControls(camera, canvas);
 orbit.enableDamping = true;
@@ -363,6 +371,7 @@ document.querySelectorAll(".mobile-controls button").forEach((button) => {
 });
 
 addEventListener("resize", () => {
+  if (!renderer) return;
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(innerWidth, innerHeight, false);
@@ -403,4 +412,4 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-init();
+if (renderer) init();
