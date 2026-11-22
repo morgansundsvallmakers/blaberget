@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { makeTargetGroup, validateGroup, setupTargetGroupBuilder } from "./target-group-builder.js?v=1";
 
 const STORAGE_KEY = "blaberget-buildings-v1";
 const ASSET = "assets/faltboden_forsta_utkast.glb";
@@ -9,7 +10,7 @@ const TARGETS = {
   b45: { label:"B 45", width:0.35, height:0.45, color:0x17191a },
   c30: { label:"C 30", width:0.30, height:0.27, color:0xe87827 }
 };
-const TYPES = [MODEL_ID, ...Object.keys(TARGETS)];
+const TYPES = [MODEL_ID, ...Object.keys(TARGETS), "group"];
 
 function createTarget(type) {
   const {label,width,height,color} = TARGETS[type];
@@ -67,6 +68,7 @@ export async function setupBuildingEditor({ scene, camera, canvas, terrain, heig
   let placement = null; // "add" or "move"
   let enabled = false;
   let model = null;
+  let pendingGroup = null;
 
   const setStatus = (message) => { status.textContent = message; };
   const bounded = (v, range) => THREE.MathUtils.clamp(v, -range / 2 + 4, range / 2 - 4);
@@ -74,10 +76,13 @@ export async function setupBuildingEditor({ scene, camera, canvas, terrain, heig
     if (!Array.isArray(raw)) return [];
     return raw.filter(row => row && TYPES.includes(row.type)
       && Number.isFinite(row.x) && Number.isFinite(row.z) && Number.isFinite(row.rotation)
-      && Math.abs(row.x) <= 500 && Math.abs(row.z) <= 400).slice(0, 200)
-      .map(row => ({ type: row.type, x: row.x, z: row.z, rotation: row.rotation }));
+      && Math.abs(row.x) <= 500 && Math.abs(row.z) <= 400
+      && (row.type!=="group" || validateGroup(row.group))).slice(0, 200)
+      .map(row => ({ type: row.type, x: row.x, z: row.z, rotation: row.rotation,
+        ...(row.type==="group"?{group:validateGroup(row.group)}:{}) }));
   };
-  const entries = () => buildings.map(b => ({type: b.userData.assetType, x: b.position.x, z: b.position.z, rotation: b.rotation.y}));
+  const entries = () => buildings.map(b => ({type: b.userData.assetType, x: b.position.x, z: b.position.z, rotation: b.rotation.y,
+    ...(b.userData.assetType==="group"?{group:b.userData.groupConfig}:{})}));
   function save() {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(entries())); }
     catch { setStatus("Kunde inte spara lokalt. Använd Exportera JSON."); }
@@ -102,7 +107,8 @@ export async function setupBuildingEditor({ scene, camera, canvas, terrain, heig
     updateUI();
   }
   function makeBuilding(entry) {
-    const building = entry.type===MODEL_ID ? model.clone(true) : createTarget(entry.type);
+    const building = entry.type===MODEL_ID ? model.clone(true)
+      :entry.type==="group" ? makeTargetGroup(entry.group) : createTarget(entry.type);
     building.traverse(obj => {
       if(!obj.isMesh) return;
       obj.material = obj.material.clone(); // selection must not affect shared meshes
@@ -113,6 +119,7 @@ export async function setupBuildingEditor({ scene, camera, canvas, terrain, heig
     building.rotation.y = entry.rotation;
     building.userData.building = true;
     building.userData.assetType = entry.type;
+    if(entry.type==="group") building.userData.groupConfig=validateGroup(entry.group);
     scene.add(building);
     buildings.push(building);
     updateUI();
@@ -126,14 +133,14 @@ export async function setupBuildingEditor({ scene, camera, canvas, terrain, heig
     toggle.setAttribute("aria-pressed",String(enabled));
     toggle.classList.toggle("active",enabled);
     if(enabled && getMode()!=="overview") setOverview();
-    if(!enabled) {placement=null;deselect();}
+    if(!enabled) {placement=null;pendingGroup=null;deselect();}
     updateUI();
   }
   function beginPlacement(action) {
     if(typeSelect.value===MODEL_ID && !model && action==="add"){setStatus("Fältboden laddas fortfarande.");return;}
     if(getMode()!=="overview") setOverview();
     placement = placement===action ? null : action;
-    setStatus(placement==="add"?`Klicka på terrängen för att placera ${typeSelect.options[typeSelect.selectedIndex].text}.`
+    setStatus(placement==="add"?`Klicka på terrängen för att placera ${pendingGroup?"målgruppen":typeSelect.options[typeSelect.selectedIndex].text}.`
       :placement==="move"?"Klicka på en ny plats för det valda objektet.":"Välj ett objekt eller placera ett nytt.");
     updateUI();
   }
@@ -159,8 +166,9 @@ export async function setupBuildingEditor({ scene, camera, canvas, terrain, heig
       if(!hit){setStatus("Klicka inom terrängmodellen.");return;}
       const x=bounded(hit.point.x,1000), z=bounded(hit.point.z,800);
       if(placement==="add"){
-        const type=typeSelect.value;
-        select(makeBuilding({type,x,z,rotation:0}));
+        const type=pendingGroup?"group":typeSelect.value;
+        select(makeBuilding({type,x,z,rotation:0,...(pendingGroup?{group:pendingGroup}:{})}));
+        pendingGroup=null;
         setStatus("Objektet placerat. Rotera eller flytta det vid behov.");
       } else if(selected){
         selected.position.set(x,heightAt(x,z),z);
@@ -181,8 +189,14 @@ export async function setupBuildingEditor({ scene, camera, canvas, terrain, heig
     setStatus("Inget objekt valt.");
   });
   canvas.addEventListener("pointercancel",()=>pointerStart=null);
-  addButton.addEventListener("click",()=>beginPlacement("add"));
-  typeSelect.addEventListener("change",()=>{if(placement==="add"){placement=null;updateUI();} });
+  addButton.addEventListener("click",()=>{pendingGroup=null;beginPlacement("add");});
+  setupTargetGroupBuilder({onPlace:config=>{
+    setEnabled(true);
+    pendingGroup=config;
+    placement=null;
+    beginPlacement("add");
+  }});
+  typeSelect.addEventListener("change",()=>{pendingGroup=null;if(placement==="add"){placement=null;updateUI();} });
   moveButton.addEventListener("click",()=>beginPlacement("move"));
   for(const [button, angle] of [[leftButton,-15],[rightButton,15]]){
     button.addEventListener("click",()=>{
