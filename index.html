@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#17251c">
   <title>Blåberget – virtuell områdesplanering</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2">
   <script type="importmap">
     {
       "imports": {
@@ -26,12 +26,17 @@
     <div class="actions" aria-label="Visningslägen">
       <button id="overview" class="active" type="button">Översikt</button>
       <button id="ground" type="button">Marknivå</button>
-      <button id="place-person" type="button" aria-pressed="false">Placera mig</button>
-      <button id="toggle-boundary" type="button" aria-pressed="true">Röd gräns</button>
-      <button id="toggle-trees" type="button" aria-pressed="true">Träd</button>
-      <button id="toggle-imagery" type="button" aria-pressed="false">Flygfoto</button>
-      <button id="toggle-build" type="button" aria-pressed="false">Byggläge</button>
-      <button id="toggle-help" class="icon-button" type="button" aria-label="Visa hjälp">?</button>
+      <details class="more-actions">
+        <summary>Verktyg</summary>
+        <div class="extra-actions">
+          <button id="place-person" type="button" aria-pressed="false">Placera mig</button>
+          <button id="toggle-boundary" type="button" aria-pressed="true">Röd gräns</button>
+          <button id="toggle-trees" type="button" aria-pressed="true">Träd</button>
+          <button id="toggle-imagery" type="button" aria-pressed="false">Flygfoto</button>
+          <button id="toggle-build" type="button" aria-pressed="false">Byggläge</button>
+          <button id="toggle-help" class="icon-button" type="button" aria-label="Visa hjälp">?</button>
+        </div>
+      </details>
     </div>
   </header>
 
