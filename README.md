@@ -81,3 +81,31 @@ Startpunkten sparas lokalt i webbläsaren, separat från byggnader och mål.
 Det går att avbryta utplaceringen med Esc. **Byggläge** och
 **Placera mig** kan inte vara aktiva samtidigt. Observatörsmarkören
 döljs i marknivå.
+
+## Fältmålsbyggare (första versionen)
+
+Öppna **Verktyg → Byggläge → Bygg en målgrupp…**. Dialogen har en
+framifrånvy av upp till tre stolpar. Välj målfigur, klicka **Lägg till**,
+dra figurerna till önskad plats eller ange sidled/centrumhöjd i centimeter
+och rotation i grader. Det går att lägga till högst 30 figurer per målgrupp.
+
+Målbyggaren innehåller C 50, B 45 och C 30 samt några **schematiska
+exempelfigurer**. De är inte fotografiska texturer eller slutligt
+kvalitetssäkrade mått för ytterligare figurer. Varje figur visas som en
+plan yta i korrekt angiven fysisk skala. Trästolparna är schematiska.
+
+**Spara målgrupp** lagrar en namngiven komposition i webbläsarens
+localStorage. **Öppna sparad** hämtar en sådan komposition igen.
+Biblioteket synkroniseras inte mellan enheter.
+
+**Placera målgruppen i terrängen** stänger dialogen och låter dig klicka
+på en plats i översiktsläget. Hela gruppen kan sedan väljas, flyttas,
+vridas och tas bort som övriga objekt. Placeringar och deras respektive
+figurkonfigurationer följer med i befintlig **Exportera JSON** /
+**Importera JSON**, fortfarande med version 1. Äldre version 1-filer
+med fältbodar eller enskilda mål är fortsatt giltiga. Det namngivna
+biblioteket exporteras inte separat; JSON-exporten innehåller endast
+de målgrupper som faktiskt placerats i terrängen.
+
+Målgruppen är ett visuellt planeringsobjekt, inte en säkerhetsbedömning
+av skjutriktningar eller kulfång.
