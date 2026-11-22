@@ -3,7 +3,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { createImageryTexture } from "./esri-imagery.js";
 import { ESRI_PUBLIC_API_KEY } from "./config.js";
-import { setupBuildingEditor } from "./building-editor.js?v=3";
+import { setupBuildingEditor } from "./building-editor.js?v=4";
 
 const canvas = document.querySelector("#scene");
 const loading = document.querySelector("#loading");
