@@ -371,3 +371,18 @@ noscript { position: fixed; inset: 0; z-index: 100; display: grid; place-items: 
   }
   .compass { bottom:max(10px,env(safe-area-inset-bottom)); }
 }
+
+
+/* Prevent iOS Safari from selecting HUD text during touch navigation.
+   Do not disable selection on the whole page or on input fields. */
+.readout, .readout *, .compass, .compass *,
+.mobile-controls, .mobile-controls button,
+.topbar, .topbar button, .more-actions > summary {
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+}
+.mobile-controls button {
+  touch-action:none;
+  -webkit-tap-highlight-color:transparent;
+}
