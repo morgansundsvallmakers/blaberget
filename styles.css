@@ -274,3 +274,70 @@ noscript { position: fixed; inset: 0; z-index: 100; display: grid; place-items: 
   font-size:.85rem; pointer-events:none; }
 .observer-status[hidden] {display:none;}
 @media(max-width:650px){ .observer-status{top:128px;} }
+
+
+/* Keep the original desktop toolbar; collapse secondary actions on narrow screens. */
+.more-actions, .extra-actions { display:contents; }
+.more-actions > summary { display:none; }
+
+@media (max-width:760px) {
+  .topbar {
+    align-items:center;
+    gap:8px;
+    inset:max(10px,env(safe-area-inset-top)) 10px auto;
+    padding:9px 11px;
+    min-height:58px;
+  }
+  .topbar h1 { font-size:1.2rem; white-space:nowrap; }
+  .actions { max-width:none; flex-wrap:nowrap; gap:5px; margin-left:auto; }
+  .actions > button { min-height:38px; padding-inline:8px; font-size:.77rem; white-space:nowrap; }
+  .more-actions { display:block; position:relative; }
+  .more-actions > summary {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    list-style:none;
+    cursor:pointer;
+    min-height:38px;
+    padding:0 10px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:11px;
+    color:var(--text);
+    font-size:.77rem;
+  }
+  .more-actions > summary::-webkit-details-marker { display:none; }
+  .more-actions[open] > summary { background:rgba(215,230,176,.18); border-color:rgba(215,230,176,.7); }
+  .extra-actions {
+    display:none;
+    position:absolute;
+    top:calc(100% + 10px);
+    right:0;
+    width:min(230px,calc(100vw - 24px));
+    padding:10px;
+    border:1px solid var(--line);
+    border-radius:13px;
+    background:rgba(18,32,23,.97);
+    box-shadow:0 12px 35px #0008;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+  }
+  .more-actions[open] .extra-actions { display:grid; }
+  .extra-actions button,
+  .actions .extra-actions .icon-button {
+    min-height:42px;
+    width:auto;
+    padding:6px 8px;
+    border-radius:9px;
+    font-size:.78rem;
+  }
+  .extra-actions #toggle-build { grid-column:1/-1; }
+  .build-panel { top:84px; max-height:calc(100dvh - 100px); }
+  .observer-status { top:84px; }
+  .help { top:84px; right:10px; }
+}
+@media (max-width:380px) {
+  .topbar h1 { font-size:1.05rem; }
+  .actions > button { padding-inline:6px; font-size:.71rem; }
+  .more-actions > summary { padding-inline:7px; font-size:.71rem; }
+}
