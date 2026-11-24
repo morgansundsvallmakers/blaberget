@@ -1,53 +1,27 @@
-# Figurbibliotek – första utkastet
+# Blåberget – figurbibliotek
 
-Här finns **60 skalbara SVG-filer**: sex figurtyper × fem färger × två varianter.
+Alla figurernas SVG-filer ligger nu direkt i **denna mapp**. `figurer.json` är **enda katalogen** som beskriver filerna, måtten, färgerna, varianterna och granskningsstatus.
 
-## Figurer och verkliga mått
+## Struktur
 
-| Figur | Bredd | Höjd | Skjuthandbokens grupp |
-| --- | ---: | ---: | ---: |
-| C 30 | 30 cm | 27 cm | 7 |
-| C 20 | 20 cm | 18 cm | 10 |
-| L 1 | 19 cm | 45 cm | 9 |
-| L 2 | 30 cm | 70 cm | 7 |
-| A-triangel 2 | 39 cm | 29 cm | 8 |
-| Diamanten | 29.5 cm | 21 cm | 9 |
+- `<figur-id>_<farg>_<variant>.svg` – figurvarianter. `kant` har frilagd bakgrund, `skiva` ljus bakgrundsskiva.
+- Färger i filnamn: `svart`, `orange`, `gron`, `gul`, `bla`, `flerfarg`.
+- Specialmål: `ballongmal_svart_sammansatt.svg` (tre ballonger på **ett** mål) och `stolpskottet_flerfarg_staende.svg`.
+- `figurer.json` – maskinläsbart register med samtliga SVG-filnamn; använd `files[]` per figur, inte antag att alla har fem färger och två varianter.
 
-Källan för figurernas beteckningar och mått är användarens utdrag av
-*Svenska Pistolskytteförbundets skjuthandbok, Del D: Fältskyttefigurer*
-(sidorna 100–109). Färgpaletten är ungefärligt hämtad från en bifogad
-referensbild med svart, orange, grön, gul och blå figur.
+## Vad är granskat?
 
-## Varianter
+- **B-triangel 2 grön:** godkänd av användaren.
+- **A-triangel 2 orange kant:** godkänd av användaren; övriga färger/varianter är äldre utkast.
+- **1/4 Vänster:** godkänd. **1/4 Höger:** spegling av samma grundfigur. **1/4 Rak:** korrigerad och godkänd.
+- **Ballongmål:** behöver ritas om; användaren har sett felaktiga konturer. Pappskivan mäter **78 × 45 cm**, men enskilda ballongmått är okända.
+- **Stolpskottet:** behöver korrigeras; användaren har påtalat felaktiga proportioner.
+- Övriga figurer: arbetsutkast som behöver granskas mot skjuthandboken.
 
-- `*_kant.svg` – transparent bakgrund och smal ljus kontur kring figurformen.
-- `*_skiva.svg` – figuren på en **fyrsidig, ljus bakgrundsskiva**.
-  Skivan har än så länge en **illustrativ marginal på 4 cm**, och är inte
-  avsedd att återge en officiell skivstorlek.
-- Den färgade figurens verkliga bredd och höjd finns i `figurer.json`.
-  Använd dem vid 3D-skalning; **skivans SVG-storlek är större än själva figuren**.
+## Viktigt om mått och kvalitet
 
-Filerna innehåller schematiska, egna vektortolkningar utifrån formerna
-i PDF och användarens fotografier, **inte exakta officiella målillustrationer**.
-Inre ringar och facettdetaljer är förenklade. Bilderna är för
-**visualisering och planering**, inte för att skriva ut eller tillverka
-godkända tävlingsmål.
+Måtten kommer från *Svenska Pistolskytteförbundets Skjuthandbok, Del D* där sådana anges. Vissa former är grova approximationer och vissa inre linjer är preliminära; figurerna är för **planeringsvisualisering**, inte godkända måltavlor.
 
-## Användning i Blåberget
+SVG-innehållet har **inte ändrats** vid denna omorganisation: filer har flyttats med oförändrade Git-blobbar. Det innebär att även kända fel är kvar, men de är tydligt markerade i katalogen.
 
-SVG går att använda direkt som textur i Three.js eller rasterisera till PNG.
-Målbyggaren kan läsa dimensioner, färgval och filnamn ur `figurer.json`.
-Ingenting i den befintliga appen ändras av detta första bibliotek.
-
-Exempel: `c30_gron_kant.svg`, `diamanten_bla_skiva.svg`.
-
-Senare kan man lägga till noggrannare konturer, korrekta ringar, valfri
-skivstorlek och rotation utan att ändra figurernas definierade mått.
-
-### Rättning: C-figurer (24 november 2026)
-
-C 20 och C 30 är cirklar med **rak avkapad nederkant**, inte ellipser.
-Den cirkulära delen har diametern 20 respektive 30 cm och kapas 2 respektive
-3 cm från cirkelns nedersta punkt, vilket ger totalhöjden 18 respektive 27 cm.
-Detta gäller alla tio SVG-varianter per figur. De inre ringarna är fortfarande
-schematiska och ska granskas mot skjuthandboken.
+De befintliga bygglägena i `building-editor.js` och `target-group-builder.js` använder fortfarande sina egna enkla former; de använder inte ännu detta SVG-bibliotek. Om appen senare ansluts till biblioteket ska den använda registret och filernas granskningsstatus.

@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 1,
-  "status": "first-draft",
+  "schemaVersion": 2,
+  "status": "mixed: reviewed and draft assets",
   "source": "Svenska Pistolskytteförbundet, Skjuthandbok, Del D, Fältskyttefigurer, utdrag sidorna 100–109 i användarens PDF",
-  "note": "Figurernas mått kommer från skjuthandboken. Konturer och ringar är schematiska egna SVG-tolkningar, inte officiellt godkända målunderlag. Färgerna är hämtade som exempelvärden från användarens bifogade palettbild. Skivornas marginaler är illustrativa, ej standardmått. C 20 och C 30 har reviderats till cirkel med rak avkapad nederkant.",
+  "note": "Gemensamt register för alla SVG-filer i assets/figurer. Filernas mått och godkännandestatus är separata från geometrin. Inga figurers konturer ändrades vid omorganisationen.",
   "colors": {
     "svart": {
       "hex": "#292526"
@@ -51,7 +51,72 @@
         "kant",
         "skiva"
       ],
-      "file_template": "c30_{color}_{variant}.svg"
+      "file_template": "c30_{color}_{variant}.svg",
+      "kind": "figure",
+      "files": [
+        {
+          "file": "c30_svart_kant.svg",
+          "color": "svart",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "c30_svart_skiva.svg",
+          "color": "svart",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "c30_orange_kant.svg",
+          "color": "orange",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "c30_orange_skiva.svg",
+          "color": "orange",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "c30_gron_kant.svg",
+          "color": "gron",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "c30_gron_skiva.svg",
+          "color": "gron",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "c30_gul_kant.svg",
+          "color": "gul",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "c30_gul_skiva.svg",
+          "color": "gul",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "c30_bla_kant.svg",
+          "color": "bla",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "c30_bla_skiva.svg",
+          "color": "bla",
+          "variant": "skiva",
+          "status": "draft"
+        }
+      ],
+      "status": "draft",
+      "notes": "Cirkelform med rak avkapad nederkant; ringarna är preliminära"
     },
     {
       "id": "c20",
@@ -73,7 +138,72 @@
         "kant",
         "skiva"
       ],
-      "file_template": "c20_{color}_{variant}.svg"
+      "file_template": "c20_{color}_{variant}.svg",
+      "kind": "figure",
+      "files": [
+        {
+          "file": "c20_svart_kant.svg",
+          "color": "svart",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "c20_svart_skiva.svg",
+          "color": "svart",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "c20_orange_kant.svg",
+          "color": "orange",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "c20_orange_skiva.svg",
+          "color": "orange",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "c20_gron_kant.svg",
+          "color": "gron",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "c20_gron_skiva.svg",
+          "color": "gron",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "c20_gul_kant.svg",
+          "color": "gul",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "c20_gul_skiva.svg",
+          "color": "gul",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "c20_bla_kant.svg",
+          "color": "bla",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "c20_bla_skiva.svg",
+          "color": "bla",
+          "variant": "skiva",
+          "status": "draft"
+        }
+      ],
+      "status": "draft",
+      "notes": "Cirkelform med rak avkapad nederkant; ringarna är preliminära"
     },
     {
       "id": "l1",
@@ -95,7 +225,72 @@
         "kant",
         "skiva"
       ],
-      "file_template": "l1_{color}_{variant}.svg"
+      "file_template": "l1_{color}_{variant}.svg",
+      "kind": "figure",
+      "files": [
+        {
+          "file": "l1_svart_kant.svg",
+          "color": "svart",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "l1_svart_skiva.svg",
+          "color": "svart",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "l1_orange_kant.svg",
+          "color": "orange",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "l1_orange_skiva.svg",
+          "color": "orange",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "l1_gron_kant.svg",
+          "color": "gron",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "l1_gron_skiva.svg",
+          "color": "gron",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "l1_gul_kant.svg",
+          "color": "gul",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "l1_gul_skiva.svg",
+          "color": "gul",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "l1_bla_kant.svg",
+          "color": "bla",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "l1_bla_skiva.svg",
+          "color": "bla",
+          "variant": "skiva",
+          "status": "draft"
+        }
+      ],
+      "status": "draft",
+      "notes": "Avlång L-figur, vertikal"
     },
     {
       "id": "l2",
@@ -117,7 +312,72 @@
         "kant",
         "skiva"
       ],
-      "file_template": "l2_{color}_{variant}.svg"
+      "file_template": "l2_{color}_{variant}.svg",
+      "kind": "figure",
+      "files": [
+        {
+          "file": "l2_svart_kant.svg",
+          "color": "svart",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "l2_svart_skiva.svg",
+          "color": "svart",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "l2_orange_kant.svg",
+          "color": "orange",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "l2_orange_skiva.svg",
+          "color": "orange",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "l2_gron_kant.svg",
+          "color": "gron",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "l2_gron_skiva.svg",
+          "color": "gron",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "l2_gul_kant.svg",
+          "color": "gul",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "l2_gul_skiva.svg",
+          "color": "gul",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "l2_bla_kant.svg",
+          "color": "bla",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "l2_bla_skiva.svg",
+          "color": "bla",
+          "variant": "skiva",
+          "status": "draft"
+        }
+      ],
+      "status": "draft",
+      "notes": "Kontur behöver kontrolleras"
     },
     {
       "id": "a-triangel-2",
@@ -139,7 +399,72 @@
         "kant",
         "skiva"
       ],
-      "file_template": "a-triangel-2_{color}_{variant}.svg"
+      "file_template": "a-triangel-2_{color}_{variant}.svg",
+      "kind": "figure",
+      "files": [
+        {
+          "file": "a-triangel-2_svart_kant.svg",
+          "color": "svart",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "a-triangel-2_svart_skiva.svg",
+          "color": "svart",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "a-triangel-2_orange_kant.svg",
+          "color": "orange",
+          "variant": "kant",
+          "status": "user-approved-reference"
+        },
+        {
+          "file": "a-triangel-2_orange_skiva.svg",
+          "color": "orange",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "a-triangel-2_gron_kant.svg",
+          "color": "gron",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "a-triangel-2_gron_skiva.svg",
+          "color": "gron",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "a-triangel-2_gul_kant.svg",
+          "color": "gul",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "a-triangel-2_gul_skiva.svg",
+          "color": "gul",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "a-triangel-2_bla_kant.svg",
+          "color": "bla",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "a-triangel-2_bla_skiva.svg",
+          "color": "bla",
+          "variant": "skiva",
+          "status": "draft"
+        }
+      ],
+      "status": "draft",
+      "notes": "Triangelfigur"
     },
     {
       "id": "diamanten",
@@ -161,7 +486,187 @@
         "kant",
         "skiva"
       ],
-      "file_template": "diamanten_{color}_{variant}.svg"
+      "file_template": "diamanten_{color}_{variant}.svg",
+      "kind": "figure",
+      "files": [
+        {
+          "file": "diamanten_svart_kant.svg",
+          "color": "svart",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "diamanten_svart_skiva.svg",
+          "color": "svart",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "diamanten_orange_kant.svg",
+          "color": "orange",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "diamanten_orange_skiva.svg",
+          "color": "orange",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "diamanten_gron_kant.svg",
+          "color": "gron",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "diamanten_gron_skiva.svg",
+          "color": "gron",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "diamanten_gul_kant.svg",
+          "color": "gul",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "diamanten_gul_skiva.svg",
+          "color": "gul",
+          "variant": "skiva",
+          "status": "draft"
+        },
+        {
+          "file": "diamanten_bla_kant.svg",
+          "color": "bla",
+          "variant": "kant",
+          "status": "draft"
+        },
+        {
+          "file": "diamanten_bla_skiva.svg",
+          "color": "bla",
+          "variant": "skiva",
+          "status": "draft"
+        }
+      ],
+      "status": "draft",
+      "notes": "Proportioner/linjer återstår att kontrollera"
+    },
+    {
+      "id": "b-triangel-2",
+      "name": "B-triangel 2",
+      "kind": "figure",
+      "group": 8,
+      "width_cm": 28,
+      "height_cm": 26,
+      "source_page_in_excerpt": 5,
+      "status": "user-approved-reference",
+      "notes": "Grön grundfigur godkänd; övriga färger/utföranden ännu inte skapade",
+      "files": [
+        {
+          "file": "b-triangel-2_gron_kant.svg",
+          "color": "gron",
+          "variant": "kant",
+          "status": "user-approved-reference"
+        }
+      ]
+    },
+    {
+      "id": "kvart-vanster",
+      "name": "1/4 Vänster",
+      "kind": "figure",
+      "group": 6,
+      "width_cm": 60,
+      "height_cm": 35,
+      "status": "user-approved-reference",
+      "notes": "Användargodkänd kontur",
+      "files": [
+        {
+          "file": "kvart-vanster_svart_kant.svg",
+          "color": "svart",
+          "variant": "kant",
+          "status": "user-approved-reference"
+        }
+      ]
+    },
+    {
+      "id": "kvart-hoger",
+      "name": "1/4 Höger",
+      "kind": "figure",
+      "group": 6,
+      "width_cm": 60,
+      "height_cm": 35,
+      "status": "mirrored-from-approved",
+      "notes": "Exakt spegling av godkända 1/4 Vänster; kontur ej manuellt omritad",
+      "files": [
+        {
+          "file": "kvart-hoger_svart_kant.svg",
+          "color": "svart",
+          "variant": "kant",
+          "status": "derived"
+        }
+      ]
+    },
+    {
+      "id": "kvart-rak",
+      "name": "1/4 Rak",
+      "kind": "figure",
+      "group": 6,
+      "width_cm": 49,
+      "height_cm": 33,
+      "status": "user-approved-reference",
+      "notes": "Korrigerad SVG som användaren godkände efter jämförelse",
+      "files": [
+        {
+          "file": "kvart-rak_gron_kant.svg",
+          "color": "gron",
+          "variant": "kant",
+          "status": "user-approved-reference"
+        }
+      ]
+    },
+    {
+      "id": "ballongmal",
+      "name": "Ballongmål, tre ballonger",
+      "kind": "composite-target",
+      "figuresCount": 3,
+      "width_cm": null,
+      "height_cm": null,
+      "board_width_cm": 78,
+      "board_height_cm": 45,
+      "dimension_note": "Papparkets mått 78 × 45 cm enligt användaren, inte ballongernas individuella mått.",
+      "status": "needs-redrawing",
+      "notes": "Tre ballonger = ett mål. Användaren har påpekat att befintliga konturer fortfarande är missbildade. Befintlig SVG flyttas oförändrad, får inte behandlas som färdig.",
+      "source": "Produktbild från Skyttetjänst, tillhandahållen av användaren",
+      "files": [
+        {
+          "file": "ballongmal_svart_sammansatt.svg",
+          "color": "svart",
+          "variant": "sammansatt",
+          "status": "needs-redrawing"
+        }
+      ]
+    },
+    {
+      "id": "stolpskottet",
+      "name": "Stolpskottet",
+      "kind": "single-figure",
+      "width_cm": 30,
+      "height_cm": 59,
+      "ring_diameter_cm": 12,
+      "group": 13,
+      "status": "needs-proportion-correction",
+      "notes": "Användaren har påpekat att nuvarande SVG har fel proportioner. Flyttad oförändrad. Stående version.",
+      "files": [
+        {
+          "file": "stolpskottet_flerfarg_staende.svg",
+          "color": "flerfarg",
+          "variant": "staende",
+          "status": "needs-proportion-correction"
+        }
+      ]
     }
-  ]
+  ],
+  "naming": "Alla SVG i denna mapp. Namn: <figur-id>_<farg>_<variant>.svg; specialmål kan ha 'sammansatt' eller 'staende' i stället för variant."
 }
