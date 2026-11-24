@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="270mm" height="530mm" viewBox="0 0 27 53" role="img" aria-label="L 1, gul, bakgrundsskiva">
 <title>L 1 – gul – skiva</title>
-<desc>Förenklad egen vektorillustration för Blåbergets 3D-planering. Färgad figur 19 × 45 cm enligt skjuthandboken; skiva och kontur är schematiska.</desc>
-<rect x="0" y="0" width="27" height="53" rx="0.18" fill="#eee9df" stroke="#d6d0c5" stroke-width=".14"/>
-<g transform="translate(4 4) scale(19 45)" stroke-linejoin="round" stroke-linecap="round">
-<path d="M .29 .01 L .71 .01 L .97 .38 L .73 .68 L .55 .99 L .45 .99 L .27 .68 L .03 .38 Z" fill="#FEEE0E" stroke="#e7ddd0" stroke-width=".035"/>
-<path d="M .34 .25 L .66 .25 L .81 .62 L .56 .85 L .44 .85 L .19 .62 Z" fill="none" stroke="#e7ddd0" stroke-width=".012" opacity=".7"/><path d="M .39 .40 L .61 .40 L .66 .63 L .53 .73 L .47 .73 L .34 .63 Z" fill="none" stroke="#e7ddd0" stroke-width=".012" opacity=".65"/>
+<desc>Stående L1, 19 × 45 cm, omritad efter horisontell referens. Sex hörn, parallella inre konturlinjer och en geometriskt cirkulär ring nära den breda änden. Ej officiellt original.</desc>
+<rect width="27" height="53" rx=".18" fill="#eee9df" stroke="#d6d0c5" stroke-width=".14"/>
+<g transform="translate(4 4)">
+<!-- The horizontal 45 × 19 cm master contour is rotated to the handbook's 19 × 45 cm orientation. -->
+<g transform="translate(19 0) rotate(90)" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M 0 7 L 13 0 L 45 7.5 L 45 11.8 L 13 19 L 0 13.1 Z"
+        fill="#FEEE0E" stroke="#e3ddd2" stroke-width=".20"/>
+  <path d="M 1.1 7.65 L 13 1.15 L 43.9 8.25 L 43.9 11.05 L 13 17.85 L 1.1 12.4 Z"
+        fill="none" stroke="#e3ddd2" stroke-width=".13" opacity=".9"/>
+  <path d="M 2.8 8.45 L 13 2.85 L 37.8 8.3 L 37.8 10.9 L 13 16.1 L 2.8 11.65 Z"
+        fill="none" stroke="#e3ddd2" stroke-width=".11" opacity=".95"/>
+  <circle cx="13" cy="9.5" r="3.0" fill="none" stroke="#e3ddd2" stroke-width=".13"/>
+</g>
 </g>
 </svg>
