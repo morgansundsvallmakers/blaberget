@@ -423,3 +423,57 @@ noscript { position: fixed; inset: 0; z-index: 100; display: grid; place-items: 
   #tg-name,#tg-saved {min-width:0;}
   .tg-row {flex-wrap:wrap;}
 }
+
+
+/* The same navigation at every viewport width: two camera modes and Verktyg. */
+@media (min-width:761px) {
+  .actions { flex-wrap:nowrap; align-items:center; }
+  .more-actions { display:block; position:relative; }
+  .more-actions > summary {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    list-style:none;
+    cursor:pointer;
+    min-height:38px;
+    padding:0 13px;
+    border:1px solid rgba(255,255,255,.17);
+    border-radius:11px;
+    background:rgba(255,255,255,.07);
+    color:var(--text);
+    font:inherit;
+  }
+  .more-actions > summary::-webkit-details-marker {display:none;}
+  .more-actions > summary:hover,
+  .more-actions > summary:focus-visible,
+  .more-actions[open] > summary {
+    border-color:rgba(215,230,176,.7);
+    background:rgba(215,230,176,.18);
+  }
+  .extra-actions {
+    display:none;
+    position:absolute;
+    top:calc(100% + 10px);
+    right:0;
+    width:245px;
+    padding:10px;
+    border:1px solid var(--line);
+    border-radius:13px;
+    background:rgba(18,32,23,.97);
+    box-shadow:0 12px 35px #0008;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+  }
+  .more-actions[open] .extra-actions {display:grid;}
+  .extra-actions button,
+  .actions .extra-actions .icon-button {
+    width:auto;
+    min-height:42px;
+    padding:6px 8px;
+    border-radius:9px;
+    font-size:.84rem;
+  }
+  .extra-actions #toggle-build {grid-column:1/-1;}
+}
+/* A toggle being off does not mean the tool is unavailable. */
+.actions .extra-actions button[aria-pressed="false"] {opacity:1;}
