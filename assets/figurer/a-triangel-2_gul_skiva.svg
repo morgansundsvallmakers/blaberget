@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="470mm" height="370mm" viewBox="0 0 47 37" role="img" aria-label="A-triangel 2, gul, bakgrundsskiva">
+<title>A-triangel 2 – gul – skiva</title>
+<desc>Förenklad egen vektorillustration för Blåbergets 3D-planering. Färgad figur 39 × 29 cm enligt skjuthandboken; skiva och kontur är schematiska.</desc>
+<rect x="0" y="0" width="47" height="37" rx="0.18" fill="#eee9df" stroke="#d6d0c5" stroke-width=".14"/>
+<g transform="translate(4 4) scale(39 29)" stroke-linejoin="round" stroke-linecap="round">
+<path d="M .50 .02 Q .54 .02 .57 .07 L .99 .86 Q 1.02 .96 .90 .98 L .10 .98 Q -.02 .96 .01 .86 L .43 .07 Q .46 .02 .50 .02 Z" fill="#FEEE0E" stroke="#e7ddd0" stroke-width=".035"/>
+<path d="M.5 .29 L.74 .77 L.26 .77 Z" fill="none" stroke="#e7ddd0" stroke-width=".015" opacity=".8"/><ellipse cx=".5" cy=".61" rx=".12" ry=".14" fill="none" stroke="#e7ddd0" stroke-width=".012" opacity=".7"/>
+</g>
+</svg>

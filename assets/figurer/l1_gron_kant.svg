@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="213mm" height="473mm" viewBox="0 0 21.3 47.3" role="img" aria-label="L 1, gron, smal kant">
+<title>L 1 – gron – kant</title>
+<desc>Förenklad egen vektorillustration för Blåbergets 3D-planering. Färgad figur 19 × 45 cm enligt skjuthandboken; skiva och kontur är schematiska.</desc>
+<rect x="0" y="0" width="21.3" height="47.3" fill="none"/>
+<g transform="translate(1.15 1.15) scale(19 45)" stroke-linejoin="round" stroke-linecap="round">
+<path d="M .29 .01 L .71 .01 L .97 .38 L .73 .68 L .55 .99 L .45 .99 L .27 .68 L .03 .38 Z" fill="#3BAA34" stroke="#eee9df" stroke-width=".035"/>
+<path d="M .34 .25 L .66 .25 L .81 .62 L .56 .85 L .44 .85 L .19 .62 Z" fill="none" stroke="#eee9df" stroke-width=".012" opacity=".7"/><path d="M .39 .40 L .61 .40 L .66 .63 L .53 .73 L .47 .73 L .34 .63 Z" fill="none" stroke="#eee9df" stroke-width=".012" opacity=".65"/>
+</g>
+</svg>

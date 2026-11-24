@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="380mm" height="780mm" viewBox="0 0 38 78" role="img" aria-label="L 2, bla, bakgrundsskiva">
+<title>L 2 – bla – skiva</title>
+<desc>Förenklad egen vektorillustration för Blåbergets 3D-planering. Färgad figur 30 × 70 cm enligt skjuthandboken; skiva och kontur är schematiska.</desc>
+<rect x="0" y="0" width="38" height="78" rx="0.18" fill="#eee9df" stroke="#d6d0c5" stroke-width=".14"/>
+<g transform="translate(4 4) scale(30 70)" stroke-linejoin="round" stroke-linecap="round">
+<path d="M .26 .01 L .74 .01 L .99 .75 L .72 .99 L .28 .99 L .01 .75 Z" fill="#009FE3" stroke="#e7ddd0" stroke-width=".035"/>
+<path d="M .34 .25 L .66 .25 L .81 .62 L .56 .85 L .44 .85 L .19 .62 Z" fill="none" stroke="#e7ddd0" stroke-width=".012" opacity=".7"/><path d="M .39 .40 L .61 .40 L .66 .63 L .53 .73 L .47 .73 L .34 .63 Z" fill="none" stroke="#e7ddd0" stroke-width=".012" opacity=".65"/>
+</g>
+</svg>

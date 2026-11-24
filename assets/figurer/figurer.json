@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "status": "first-draft",
+  "source": "Svenska Pistolskytteförbundet, Skjuthandbok, Del D, Fältskyttefigurer, utdrag sidorna 100–109 i användarens PDF",
+  "note": "Figurernas mått kommer från skjuthandboken. Konturer och ringar är schematiska egna SVG-tolkningar, inte officiellt godkända målunderlag. Färgerna är hämtade som exempelvärden från användarens bifogade palettbild. Skivornas marginaler är illustrativa, ej standardmått.",
+  "colors": {
+    "svart": {
+      "hex": "#292526"
+    },
+    "orange": {
+      "hex": "#EA5B0C"
+    },
+    "gron": {
+      "hex": "#3BAA34"
+    },
+    "gul": {
+      "hex": "#FEEE0E"
+    },
+    "bla": {
+      "hex": "#009FE3"
+    }
+  },
+  "variants": {
+    "kant": {
+      "file_suffix": "kant",
+      "meaning": "Transparent bakgrund, ljus smal kontur (kantmarginal ingår i SVG-bilden)"
+    },
+    "skiva": {
+      "file_suffix": "skiva",
+      "meaning": "Färgad figur på ljus fyrsidig rektangulär bakgrundsskiva; skivmått schematiska"
+    }
+  },
+  "figures": [
+    {
+      "id": "c30",
+      "name": "C 30",
+      "group": 7,
+      "width_cm": 30,
+      "height_cm": 27,
+      "source_page_in_excerpt": 3,
+      "shape": "ellipse",
+      "description": "Rundad C-figur",
+      "available_colors": [
+        "svart",
+        "orange",
+        "gron",
+        "gul",
+        "bla"
+      ],
+      "available_variants": [
+        "kant",
+        "skiva"
+      ],
+      "file_template": "c30_{color}_{variant}.svg"
+    },
+    {
+      "id": "c20",
+      "name": "C 20",
+      "group": 10,
+      "width_cm": 20,
+      "height_cm": 18,
+      "source_page_in_excerpt": 6,
+      "shape": "ellipse",
+      "description": "Rundad C-figur",
+      "available_colors": [
+        "svart",
+        "orange",
+        "gron",
+        "gul",
+        "bla"
+      ],
+      "available_variants": [
+        "kant",
+        "skiva"
+      ],
+      "file_template": "c20_{color}_{variant}.svg"
+    },
+    {
+      "id": "l1",
+      "name": "L 1",
+      "group": 9,
+      "width_cm": 19,
+      "height_cm": 45,
+      "source_page_in_excerpt": 5,
+      "shape": "l1",
+      "description": "Avlång L-figur, vertikal",
+      "available_colors": [
+        "svart",
+        "orange",
+        "gron",
+        "gul",
+        "bla"
+      ],
+      "available_variants": [
+        "kant",
+        "skiva"
+      ],
+      "file_template": "l1_{color}_{variant}.svg"
+    },
+    {
+      "id": "l2",
+      "name": "L 2",
+      "group": 7,
+      "width_cm": 30,
+      "height_cm": 70,
+      "source_page_in_excerpt": 3,
+      "shape": "l2",
+      "description": "Avlång L-figur, vertikal",
+      "available_colors": [
+        "svart",
+        "orange",
+        "gron",
+        "gul",
+        "bla"
+      ],
+      "available_variants": [
+        "kant",
+        "skiva"
+      ],
+      "file_template": "l2_{color}_{variant}.svg"
+    },
+    {
+      "id": "a-triangel-2",
+      "name": "A-triangel 2",
+      "group": 8,
+      "width_cm": 39,
+      "height_cm": 29,
+      "source_page_in_excerpt": 5,
+      "shape": "triangle",
+      "description": "Triangelfigur",
+      "available_colors": [
+        "svart",
+        "orange",
+        "gron",
+        "gul",
+        "bla"
+      ],
+      "available_variants": [
+        "kant",
+        "skiva"
+      ],
+      "file_template": "a-triangel-2_{color}_{variant}.svg"
+    },
+    {
+      "id": "diamanten",
+      "name": "Diamanten",
+      "group": 9,
+      "width_cm": 29.5,
+      "height_cm": 21,
+      "source_page_in_excerpt": 6,
+      "shape": "diamond",
+      "description": "Facetterad diamantfigur",
+      "available_colors": [
+        "svart",
+        "orange",
+        "gron",
+        "gul",
+        "bla"
+      ],
+      "available_variants": [
+        "kant",
+        "skiva"
+      ],
+      "file_template": "diamanten_{color}_{variant}.svg"
+    }
+  ]
+}

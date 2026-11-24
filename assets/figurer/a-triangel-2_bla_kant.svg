@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="413mm" height="313mm" viewBox="0 0 41.3 31.3" role="img" aria-label="A-triangel 2, bla, smal kant">
+<title>A-triangel 2 – bla – kant</title>
+<desc>Förenklad egen vektorillustration för Blåbergets 3D-planering. Färgad figur 39 × 29 cm enligt skjuthandboken; skiva och kontur är schematiska.</desc>
+<rect x="0" y="0" width="41.3" height="31.3" fill="none"/>
+<g transform="translate(1.15 1.15) scale(39 29)" stroke-linejoin="round" stroke-linecap="round">
+<path d="M .50 .02 Q .54 .02 .57 .07 L .99 .86 Q 1.02 .96 .90 .98 L .10 .98 Q -.02 .96 .01 .86 L .43 .07 Q .46 .02 .50 .02 Z" fill="#009FE3" stroke="#eee9df" stroke-width=".035"/>
+<path d="M.5 .29 L.74 .77 L.26 .77 Z" fill="none" stroke="#eee9df" stroke-width=".015" opacity=".8"/><ellipse cx=".5" cy=".61" rx=".12" ry=".14" fill="none" stroke="#eee9df" stroke-width=".012" opacity=".7"/>
+</g>
+</svg>
