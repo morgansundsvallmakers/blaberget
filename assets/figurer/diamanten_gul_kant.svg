@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="318mm" height="233mm" viewBox="0 0 31.8 23.3" role="img" aria-label="Diamanten, gul, smal kant">
 <title>Diamanten – gul – kant</title>
-<desc>Förenklad egen vektorillustration för Blåbergets 3D-planering. Färgad figur 29.5 × 21 cm enligt skjuthandboken; skiva och kontur är schematiska.</desc>
-<rect x="0" y="0" width="31.8" height="23.3" fill="none"/>
+<desc>Första geometriska tolkning av Diamanten, 29.5 × 21 cm, efter skjuthandbokens illustration. Fasetter med central cirkel; färger efter användarens palett. Ej officiellt tryckoriginal.</desc>
+
 <g transform="translate(1.15 1.15) scale(29.5 21)" stroke-linejoin="round" stroke-linecap="round">
-<path d="M .18 .03 L .82 .03 L 1 .29 L .76 .66 L .60 .98 L .40 .98 L .24 .66 L 0 .29 Z" fill="#FEEE0E" stroke="#eee9df" stroke-width=".035"/>
-<path d="M .18 .03 L .25 .29 L .5 .9 L .75 .29 L .82 .03 M 0 .29 H1 M.18 .03 L.5 .29 L.82 .03" fill="none" stroke="#eee9df" stroke-width=".013" opacity=".62"/><circle cx=".5" cy=".29" r=".14" fill="none" stroke="#eee9df" stroke-width=".012" opacity=".7"/>
+<path d="M .14 .06 L .86 .06 L 1 .25 L .60 1 L .40 1 L 0 .25 Z" fill="#FEEE0E" stroke="#eee9df" stroke-width=".017"/>
+<g fill="none" stroke="#eee9df" stroke-width=".008" opacity=".85">
+<path d="M .14 .06 L .29 .11 L .5 .11 L .71 .11 L .86 .06 M 0 .25 L .18 .33 L .29 .11 M .18 .33 H .35 M .65 .33 H .82 L 1 .25 M .71 .11 L .82 .33 M .18 .33 L .40 1 M .82 .33 L .60 1 M .50 .11 V .20 M .50 .59 V 1"/>
+<circle cx=".5" cy=".413" r=".155"/>
+</g>
 </g>
 </svg>
