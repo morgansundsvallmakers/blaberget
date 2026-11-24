@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="413mm" height="313mm" viewBox="0 0 41.3 31.3" role="img" aria-label="A-triangel 2, orange, smal kant">
+<svg xmlns="http://www.w3.org/2000/svg" width="400mm" height="300mm" viewBox="-0.5 -0.5 40 30" role="img" aria-label="A-triangel 2 orange med ljus kant">
 <title>A-triangel 2 – orange – kant</title>
-<desc>Förenklad egen vektorillustration för Blåbergets 3D-planering. Färgad figur 39 × 29 cm enligt skjuthandboken; skiva och kontur är schematiska.</desc>
-<rect x="0" y="0" width="41.3" height="31.3" fill="none"/>
-<g transform="translate(1.15 1.15) scale(39 29)" stroke-linejoin="round" stroke-linecap="round">
-<path d="M .50 .02 Q .54 .02 .57 .07 L .99 .86 Q 1.02 .96 .90 .98 L .10 .98 Q -.02 .96 .01 .86 L .43 .07 Q .46 .02 .50 .02 Z" fill="#EA5B0C" stroke="#eee9df" stroke-width=".035"/>
-<path d="M.5 .29 L.74 .77 L.26 .77 Z" fill="none" stroke="#eee9df" stroke-width=".015" opacity=".8"/><ellipse cx=".5" cy=".61" rx=".12" ry=".14" fill="none" stroke="#eee9df" stroke-width=".012" opacity=".7"/>
-</g>
+<desc>Orange A-triangel med ljus ytterkant och rund ring. Konturen är uppmätt från den av användaren godkända grafiska bilden, inte uppskattad som en ideal triangel. 39 × 29 cm enligt skjuthandboken. Bildreferensen har annan aspektkvot, därför har konturen anpassats till yttermåtten och centrumringen ritats separat som en sann cirkel. Prototyp, inte officiellt målunderlag.</desc>
+<path d="M18.571 0.233 L17.862 0.873 L0.371 26.411 L0 27.4 L0.203 28.127 L0.81 28.709 L1.621 28.971 L37.379 28.971 L37.953 28.825 L38.595 28.389 L38.932 27.807 L38.966 27.255 L38.696 26.586 L21.171 0.844 L20.631 0.32 L20.023 0.058 L19.416 0 Z" fill="#f85d01" stroke="#ebe5dc" stroke-width=".45" stroke-linejoin="round" />
+<circle cx="19.402" cy="18.313" r="5.719" fill="none" stroke="#ebe5dc" stroke-width=".43" />
 </svg>
