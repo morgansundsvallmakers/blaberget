@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="300mm" height="590mm" viewBox="0 0 30 59" role="img" aria-label="Stolpskottet stående, tre färgade cirklar">
+<title>Stolpskottet – stående</title>
+<desc>Skjuthandboken Del D sidan 109 anger 30 × 59 cm och ringdiameter 12 cm. Stående version enligt användarens produktbild. Ringarnas inbördes placering och nederfliken är mätta proportionellt från produktbilden, inte officiella delmått.</desc>
+<path d="M 0 0 H 30 V 55.3 H 19.6 V 59 H 10.4 V 55.3 H 0 Z" fill="#1d1d1b"/>
+<circle cx="15" cy="9.451" r="6" fill="#f47c00"/>
+<circle cx="15" cy="27.782" r="6" fill="#fff000"/>
+<circle cx="15" cy="46.112" r="6" fill="#009543"/>
+</svg>

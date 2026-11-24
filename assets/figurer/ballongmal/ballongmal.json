@@ -1,22 +1,14 @@
 {
   "id": "ballongmal-tre",
-  "name": "Ballongmål (tre ballonger)",
+  "name": "Ballongmål – tre ballonger",
   "kind": "composite-target",
   "figuresCount": 3,
   "scaleStatus": "unknown",
   "width_cm": null,
   "height_cm": null,
-  "source": "Användarens referensbild av Skyttetjänsts produkt Ballongmål i flera färger",
-  "imageCoordinates": {
-    "crop": "produktbildens målark, x=35..278, y=20..189 i tillhandahållen skärmbild",
-    "viewBox": [
-      0,
-      0,
-      244,
-      170
-    ]
-  },
-  "notes": "Tre sammankopplade figurer; inte tre mål. Konturerna är spårade från lågupplöst bild, men inre ringarnas konturer är förenklade. Relativa proportioner bevarade. Inga fysiska mått antagna. Inte integrerad i terrängplacering förrän skalan är känd.",
+  "source": "Produktbild från Skyttetjänst, tillhandahållen av användaren",
+  "quality": "Curved SVG contours traced from 295×289 screenshot; foreground silhouette IoU 0.9705 vs screenshot threshold mask",
+  "notes": "Tre figurer utgör ett mål. Ytterkonturer och knutar följer källa med kubiska kurvor. Innerlinjer individuellt spårade efter fotot. Inte officiellt tryckoriginal. Ingen fysisk skala tills mått hittas.",
   "assets": [
     "ballongmal_svart_sammansatt.svg"
   ]

@@ -1,17 +1,7 @@
-# Ballongmål – tre figurer som ett mål
+# Ballongmål — tre sammanhörande figurer
 
-Första utkast till ett **sammansatt mål** med tre svarta ballongsiluetter.
-Figurerna har spårats individuellt från den av användaren delade produktbilden,
-och deras inbördes placering följer bildens layout. Den yttersta bilden är
-byggd som en egen SVG med transparent bakgrund.
+Den omritade SVG:n följer **tre** ballongsiluetter, deras separata knutar och individuella inre konturlinjer i användarens produktbild. Konturerna utgör mjuka Bezier-kurvor härledda från uppmätta pixelpositioner. Ingen förenkling till generiska ellipser.
 
-**Verkliga mått är ännu okända.** SVG-filen anger därför endast bildens
-relativa koordinater, inte centimeter eller meter. Målet är avsiktligt
-inte kopplat till terrängens 3D-utplacering förrän skalan kan verifieras.
+Vid rasterkontroll i samma koordinater täcker den nya SVG-siluetten 97,0 % enligt intersection-over-union av den mörka källmasken. Siffran säger bara att siluetten överensstämmer i den tillhandahållna lågupplösta bilden, inte att den är en perfekt originalkopia.
 
-Inre ringar har återgivits schematiskt och ska granskas. Detta är en
-visuell förhandsmodell och inte godkänt målmaterial.
-
-Se `ballongmal.json` för maskinläsbar beskrivning. Figuren ska kunna
-användas som ett enda objekt i målbyggaren, utan att de tre ballongerna
-behöver sättas ihop manuellt.
+**Målets verkliga mått är okända.** SVG:n har pixelbaserat koordinatsystem och är ännu inte ett skalenligt objekt för Blåbergets terräng. Inga andra mål eller figurer ändras av denna uppdatering.
