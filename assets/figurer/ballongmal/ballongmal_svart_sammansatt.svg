@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="732" height="510" viewBox="0 0 244 170" role="img" aria-label="Ballongmål med tre svarta ballonger">
+<title>Ballongmål – tre sammanhörande figurer</title>
+<desc>Tre ballongsiluetter som utgör ETT mål. Relativa storlekar och positioner spårade från den av användaren visade produktbilden. Ingen verklig storlek är känd. De ljusa ringarna är schematiska. Inte färdigt målunderlag.</desc>
+<g fill="#292526" stroke-linejoin="round">
+  <path d="M 26 26 L 15 36 L 7 54 L 7 70 L 13 89 L 22 101 L 36 111 L 55 118 L 72 119 L 72 126 L 80 126 L 84 121 L 77 117 L 82 112 L 90 98 L 96 76 L 95 57 L 89 43 L 77 29 L 61 21 L 42 20 Z"/>
+  <path d="M 146 7 L 135 6 L 123 10 L 116 16 L 109 31 L 109 43 L 113 55 L 118 63 L 128 71 L 123 73 L 125 76 L 130 76 L 127 72 L 140 69 L 153 61 L 160 53 L 164 44 L 164 25 L 160 17 L 154 11 Z"/>
+  <path d="M 225 52 L 211 45 L 195 45 L 183 50 L 171 62 L 165 77 L 165 97 L 168 108 L 173 116 L 167 120 L 170 124 L 176 126 L 176 119 L 182 121 L 196 121 L 211 117 L 221 111 L 228 104 L 235 91 L 237 73 L 234 63 Z"/>
+</g>
+<g fill="none" stroke="#9e8e83" stroke-width=".9" opacity=".7">
+  <ellipse cx="52" cy="74" rx="27" ry="33" transform="rotate(7 52 74)"/>
+  <ellipse cx="137" cy="39" rx="17" ry="23" transform="rotate(8 137 39)"/>
+  <ellipse cx="203" cy="87" rx="24" ry="28" transform="rotate(18 203 87)"/>
+</g>
+</svg>
