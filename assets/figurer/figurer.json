@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "status": "first-draft",
   "source": "Svenska Pistolskytteförbundet, Skjuthandbok, Del D, Fältskyttefigurer, utdrag sidorna 100–109 i användarens PDF",
-  "note": "Figurernas mått kommer från skjuthandboken. Konturer och ringar är schematiska egna SVG-tolkningar, inte officiellt godkända målunderlag. Färgerna är hämtade som exempelvärden från användarens bifogade palettbild. Skivornas marginaler är illustrativa, ej standardmått.",
+  "note": "Figurernas mått kommer från skjuthandboken. Konturer och ringar är schematiska egna SVG-tolkningar, inte officiellt godkända målunderlag. Färgerna är hämtade som exempelvärden från användarens bifogade palettbild. Skivornas marginaler är illustrativa, ej standardmått. C 20 och C 30 har reviderats till cirkel med rak avkapad nederkant.",
   "colors": {
     "svart": {
       "hex": "#292526"
@@ -38,8 +38,8 @@
       "width_cm": 30,
       "height_cm": 27,
       "source_page_in_excerpt": 3,
-      "shape": "ellipse",
-      "description": "Rundad C-figur",
+      "shape": "circle-flat-bottom",
+      "description": "Cirkelform med rak avkapad nederkant; ringarna är preliminära",
       "available_colors": [
         "svart",
         "orange",
@@ -60,8 +60,8 @@
       "width_cm": 20,
       "height_cm": 18,
       "source_page_in_excerpt": 6,
-      "shape": "ellipse",
-      "description": "Rundad C-figur",
+      "shape": "circle-flat-bottom",
+      "description": "Cirkelform med rak avkapad nederkant; ringarna är preliminära",
       "available_colors": [
         "svart",
         "orange",

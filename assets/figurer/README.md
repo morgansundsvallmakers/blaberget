@@ -43,3 +43,11 @@ Exempel: `c30_gron_kant.svg`, `diamanten_bla_skiva.svg`.
 
 Senare kan man lägga till noggrannare konturer, korrekta ringar, valfri
 skivstorlek och rotation utan att ändra figurernas definierade mått.
+
+### Rättning: C-figurer (24 november 2026)
+
+C 20 och C 30 är cirklar med **rak avkapad nederkant**, inte ellipser.
+Den cirkulära delen har diametern 20 respektive 30 cm och kapas 2 respektive
+3 cm från cirkelns nedersta punkt, vilket ger totalhöjden 18 respektive 27 cm.
+Detta gäller alla tio SVG-varianter per figur. De inre ringarna är fortfarande
+schematiska och ska granskas mot skjuthandboken.
