@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="223mm" height="203mm" viewBox="0 0 22.3 20.3" role="img" aria-label="C 20, bla, smal kant">
 <title>C 20 – bla – kant</title>
-<desc>Skalenlig grundkontur: cirkel med diameter 20 cm, avskuren horisontellt vid 18 cm höjd. Ringarna är illustrativa.</desc>
+<desc>Cirkel med diameter 20 cm och horisontell avkapning vid 18 cm. De koncentriska cirklarna klipps av vid samma nederkant; ringradierna är preliminära.</desc>
 
 <g transform="translate(1.15 1.15)">
+<defs><clipPath id="clip-c20"><path d="M 4 18 A 10 10 0 1 1 16 18 L 4 18 Z"/></clipPath></defs>
 <path d="M 4 18 A 10 10 0 1 1 16 18 L 4 18 Z" fill="#009FE3" stroke="#eee9df" stroke-width=".3" stroke-linejoin="round"/>
-<circle cx="10" cy="10" r="8" fill="none" stroke="#eee9df" stroke-width=".12" opacity=".68"/>
-<circle cx="10" cy="10" r="6" fill="none" stroke="#eee9df" stroke-width=".12" opacity=".68"/>
-<circle cx="10" cy="10" r="4" fill="none" stroke="#eee9df" stroke-width=".12" opacity=".68"/>
+<g clip-path="url(#clip-c20)">
+<circle cx="10" cy="10" r="9.4" fill="none" stroke="#eee9df" stroke-width=".12" opacity=".68"/>
+<circle cx="10" cy="10" r="7.3" fill="none" stroke="#eee9df" stroke-width=".12" opacity=".68"/>
+<circle cx="10" cy="10" r="5" fill="none" stroke="#eee9df" stroke-width=".12" opacity=".68"/>
+</g>
 </g>
 </svg>

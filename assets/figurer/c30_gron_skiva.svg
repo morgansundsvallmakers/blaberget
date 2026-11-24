@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="380mm" height="350mm" viewBox="0 0 38 35" role="img" aria-label="C 30, gron, bakgrundsskiva">
 <title>C 30 – gron – skiva</title>
-<desc>Skalenlig grundkontur: cirkel med diameter 30 cm, avskuren horisontellt vid 27 cm höjd. Ringarna är illustrativa.</desc>
+<desc>Cirkel med diameter 30 cm och horisontell avkapning vid 27 cm. De koncentriska cirklarna klipps av vid samma nederkant; ringradierna är preliminära.</desc>
 <rect width="38" height="35" rx=".18" fill="#eee9df" stroke="#d6d0c5" stroke-width=".14"/>
 <g transform="translate(4 4)">
+<defs><clipPath id="clip-c30"><path d="M 6 27 A 15 15 0 1 1 24 27 L 6 27 Z"/></clipPath></defs>
 <path d="M 6 27 A 15 15 0 1 1 24 27 L 6 27 Z" fill="#3BAA34" stroke="#e7ddd0" stroke-width=".22" stroke-linejoin="round"/>
-<circle cx="15" cy="15" r="12" fill="none" stroke="#e7ddd0" stroke-width=".17" opacity=".68"/>
-<circle cx="15" cy="15" r="9" fill="none" stroke="#e7ddd0" stroke-width=".17" opacity=".68"/>
-<circle cx="15" cy="15" r="6" fill="none" stroke="#e7ddd0" stroke-width=".17" opacity=".68"/>
+<g clip-path="url(#clip-c30)">
+<circle cx="15" cy="15" r="14.1" fill="none" stroke="#e7ddd0" stroke-width=".17" opacity=".68"/>
+<circle cx="15" cy="15" r="10.95" fill="none" stroke="#e7ddd0" stroke-width=".17" opacity=".68"/>
+<circle cx="15" cy="15" r="7.5" fill="none" stroke="#e7ddd0" stroke-width=".17" opacity=".68"/>
+</g>
 </g>
 </svg>
