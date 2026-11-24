@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="375mm" height="290mm" viewBox="0 0 37.5 29" role="img" aria-label="Diamanten, orange, bakgrundsskiva">
 <title>Diamanten – orange – skiva</title>
-<desc>Första geometriska tolkning av Diamanten, 29.5 × 21 cm, efter skjuthandbokens illustration. Fasetter med central cirkel; färger efter användarens palett. Ej officiellt tryckoriginal.</desc>
+<desc>Schematisk geometrisk tolkning av Diamanten, figur 29.5 × 21 cm, med geometriskt rund centrumcirkel. Ej officiellt måloriginal.</desc>
 <rect width="37.5" height="29" rx=".18" fill="#eee9df" stroke="#d6d0c5" stroke-width=".14"/>
-<g transform="translate(4 4) scale(29.5 21)" stroke-linejoin="round" stroke-linecap="round">
+<g transform="translate(4 4)" stroke-linejoin="round" stroke-linecap="round">
+<g transform="scale(29.5 21)">
 <path d="M .14 .06 L .86 .06 L 1 .25 L .60 1 L .40 1 L 0 .25 Z" fill="#EA5B0C" stroke="#e7ddd0" stroke-width=".017"/>
-<g fill="none" stroke="#e7ddd0" stroke-width=".008" opacity=".85">
-<path d="M .14 .06 L .29 .11 L .5 .11 L .71 .11 L .86 .06 M 0 .25 L .18 .33 L .29 .11 M .18 .33 H .35 M .65 .33 H .82 L 1 .25 M .71 .11 L .82 .33 M .18 .33 L .40 1 M .82 .33 L .60 1 M .50 .11 V .20 M .50 .59 V 1"/>
-<circle cx=".5" cy=".413" r=".155"/>
+<path d="M .14 .06 L .29 .11 L .5 .11 L .71 .11 L .86 .06 M 0 .25 L .18 .33 L .29 .11 M .18 .33 H .35 M .65 .33 H .82 L 1 .25 M .71 .11 L .82 .33 M .18 .33 L .40 1 M .82 .33 L .60 1 M .50 .11 V .20 M .50 .64 V 1" fill="none" stroke="#e7ddd0" stroke-width=".008" opacity=".85"/>
 </g>
+<!-- Circle is deliberately outside the non-uniform scale transform. -->
+<circle cx="14.75" cy="8.6730" r="4.5725" fill="none" stroke="#e7ddd0" stroke-width=".17" opacity=".85"/>
 </g>
 </svg>
