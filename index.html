@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#17251c">
   <title>Blåberget – virtuell områdesplanering</title>
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
   <script type="importmap">
     {
       "imports": {
@@ -34,6 +34,7 @@
           <button id="toggle-trees" type="button" aria-pressed="true">Träd</button>
           <button id="toggle-imagery" type="button" aria-pressed="false">Flygfoto</button>
           <button id="toggle-build" type="button" aria-pressed="false">Byggläge</button>
+          <button id="open-model-library" type="button">3D-bibliotek</button>
           <button id="toggle-help" class="icon-button" type="button" aria-label="Visa hjälp">?</button>
         </div>
       </details>
@@ -97,6 +98,15 @@
     <button id="tg-place" class="tg-primary" type="button">Placera målgruppen i terrängen</button>
   </dialog>
 
+  <dialog id="model-library" aria-labelledby="ml-title">
+    <div class="ml-heading"><h2 id="ml-title">3D-bibliotek</h2><button id="ml-close" type="button" aria-label="Stäng">×</button></div>
+    <p>Importera fristående GLB-modeller. Filerna sparas lokalt i denna webbläsare.</p>
+    <label id="ml-drop" class="ml-drop">Välj GLB-filer eller släpp dem här<input id="ml-files" type="file" accept=".glb,model/gltf-binary" multiple></label>
+    <div class="ml-layout"><div><label for="ml-list">Sparade modeller</label><select id="ml-list" size="6" aria-label="Sparade modeller"></select></div><div id="ml-preview" aria-label="3D-förhandsvisning"></div></div>
+    <div class="ml-edit"><label for="ml-name">Visningsnamn</label><input id="ml-name" maxlength="120"><button id="ml-rename" type="button">Byt namn</button><button id="ml-download" type="button">Ladda ner GLB</button><button id="ml-delete" type="button">Ta bort</button></div>
+    <p id="ml-status" role="status" aria-live="polite"></p>
+    <p class="ml-note">Behåll originalfilerna som säkerhetskopior. Webbläsarens lagrade data kan rensas.</p>
+  </dialog>
   <aside id="help" class="help" hidden>
     <button id="close-help" class="close" type="button" aria-label="Stäng hjälp">×</button>
     <h2>Så rör du dig</h2>
@@ -147,5 +157,6 @@
 
   <noscript>JavaScript måste vara aktiverat för att visa 3D-modellen.</noscript>
   <script type="module" src="app.js?v=8"></script>
+  <script type="module" src="model-library.js?v=1"></script>
 </body>
 </html>
