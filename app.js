@@ -3,7 +3,6 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { createImageryTexture } from "./esri-imagery.js";
 import { ESRI_PUBLIC_API_KEY } from "./config.js";
-import { setupBuildingEditor } from "./building-editor.js?v=4";
 
 const canvas = document.querySelector("#scene");
 const loading = document.querySelector("#loading");
@@ -164,8 +163,6 @@ canvas.addEventListener("pointercancel",()=>{personPointerStart=null;});
 placePersonButton.addEventListener("click",()=>{
   if(!terrain)return;
   if(!placingPerson){
-    if(document.querySelector("#toggle-build")?.getAttribute("aria-pressed")==="true")
-      document.querySelector("#build-close")?.click();
     if(mode==="ground")setOverview();
   }
   setPlacingPerson(!placingPerson);
@@ -560,8 +557,6 @@ async function init() {
     forest = createForest(tree.scene);
     createPersonMarker();
     setOverview();
-    // The building editor is separate from the terrain and can be extended with more assets.
-    setupBuildingEditor({ scene, camera, canvas, terrain, heightAt, setOverview, getMode:()=>mode });
     loading.classList.add("done");
     animate();
     // A configured public key starts imagery automatically for visitors.
